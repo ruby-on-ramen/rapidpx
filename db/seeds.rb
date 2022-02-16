@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 users = [{ email: 'rubyonramen@gmail.com', password: 'SDlearn123' }]
 
 patients = [
@@ -15,32 +17,32 @@ patients = [
     medications: [
       {
         medication_name: 'Pepto-Bismol',
-        does: '20ml',
+        dose: '20ml',
         frequency: 'Every 2 hours',
         time: 'As needed',
         prescribed_by: 'Dr. Julio',
         for: 'Constipation',
-        route: 'By mouth',
+        route: 'By mouth'
       },
       {
         medication_name: 'Risperidone',
-        does: '2mg',
+        dose: '2mg',
         frequency: 'Once a day',
         time: 'Noon',
         prescribed_by: 'Dr. Yomama',
         for: 'Behavior problems',
-        route: 'By mouth',
+        route: 'By mouth'
       },
       {
         medication_name: 'Quetiapine',
-        does: '5mg',
+        dose: '5mg',
         frequency: 'Once a day',
         time: 'Before bedtime',
         prescribed_by: 'Dr. Julio',
         for: 'Antipsychotic',
-        route: 'By mouth',
-      },
-    ],
+        route: 'By mouth'
+      }
+    ]
   },
   {
     first_name: 'Gerald',
@@ -49,48 +51,48 @@ patients = [
     preferred_name: 'Gerry',
     dob: '1960-07-01',
     gender: 'Male',
-    pronoun: 'He/His',
+    pronoun: 'He/Him',
     image:
       'https://www.boredpanda.com/blog/wp-content/uploads/2019/07/faceapp-42-5d2f3610a981a__700.jpg',
     need_to_know: 'Deaf, he screams a lot',
     medications: [
       {
         medication_name: 'Olanzapine',
-        does: '10mg',
+        dose: '10mg',
         frequency: 'Once a day',
         time: 'Morning',
         prescribed_by: 'Dr. Glam',
         for: 'Schizophrenia',
-        route: 'Injection',
+        route: 'Injection'
       },
       {
         medication_name: 'Metronidazole',
-        does: '60mg',
+        dose: '60mg',
         frequency: 'Once a day',
         time: 'Before bed',
         prescribed_by: 'Dr. Who',
         for: 'Antibiotic',
-        route: 'Topical',
+        route: 'Topical'
       },
       {
         medication_name: 'Lorazepam',
-        does: '0.5mg tab',
+        dose: '0.5mg tab',
         frequency: 'Every 6 hours',
         time: 'As needed',
         prescribed_by: 'Dr. Tabata',
         for: 'Anxiety',
-        route: 'By mouth',
+        route: 'By mouth'
       },
       {
         medication_name: 'Zaditor Antihistamine',
-        does: '5ml',
+        dose: '5ml',
         frequency: 'Once a day',
         time: 'Morning',
         prescribed_by: 'Dr. Glam',
         for: 'Itching',
-        route: 'Eye drop',
-      },
-    ],
+        route: 'Eye drop'
+      }
+    ]
   },
   {
     first_name: 'Dwayne',
@@ -99,39 +101,39 @@ patients = [
     preferred_name: 'The Rock',
     dob: '1952-05-02',
     gender: 'Male',
-    pronoun: 'He/His',
+    pronoun: 'He/Him',
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPJuAdZN05gfFF7WLSehsSohkzG2fx9qH8_w&usqp=CAU',
     need_to_know: 'Likes to show off',
     medications: [
       {
         medication_name: 'Loratadine',
-        does: '10mg tab',
+        dose: '10mg tab',
         frequency: 'As needed',
         time: 'As needed',
         prescribed_by: 'Dr. Who',
         for: 'Allergies',
-        route: 'By mouth',
+        route: 'By mouth'
       },
       {
         medication_name: 'Acetaminophen',
-        does: '1200 mg tab',
+        dose: '1200 mg tab',
         frequency: 'Once a day',
         time: 'evening',
         prescribed_by: 'Dr. Fox',
         for: 'Pain reliever',
-        route: 'By mouth',
+        route: 'By mouth'
       },
       {
         medication_name: 'Hydroxyzine',
-        does: '25mg tab',
+        dose: '25mg tab',
         frequency: 'Twice a day',
         time: '8am and 8pm',
         prescribed_by: 'Dr. Yomama',
         for: 'Itching',
-        route: 'By mouth',
-      },
-    ],
+        route: 'By mouth'
+      }
+    ]
   },
   {
     first_name: 'Cole',
@@ -147,41 +149,41 @@ patients = [
     medications: [
       {
         medication_name: 'Citalopram',
-        does: '10mg tab',
+        dose: '10mg tab',
         frequency: 'Once a day',
         time: 'morning',
         prescribed_by: 'Dr. Fox',
         for: 'Treat depression',
-        route: 'By mouth',
+        route: 'By mouth'
       },
       {
         medication_name: 'Zaditor Antihistamine',
-        does: '5ml',
+        dose: '5ml',
         frequency: 'Once a day',
         time: 'morning',
         prescribed_by: 'Dr. Biber',
         for: 'Itching',
-        route: 'Eye drop',
+        route: 'Eye drop'
       },
       {
         medication_name: 'Loratadine',
-        does: '10mg tab',
+        dose: '10mg tab',
         frequency: 'As needed',
         time: 'As needed',
         prescribed_by: 'Dr. Who',
         for: 'Allergies',
-        route: 'By mouth',
+        route: 'By mouth'
       },
       {
         medication_name: 'Acetaminophen ',
-        does: '200 mg tab',
+        dose: '200 mg tab',
         frequency: 'Once a day',
         time: 'Evening',
         prescribed_by: 'Dr. Fox',
         for: 'Pain reliever',
-        route: 'By mouth',
-      },
-    ],
+        route: 'By mouth'
+      }
+    ]
   },
   {
     first_name: 'Katheryn',
@@ -197,33 +199,33 @@ patients = [
     medications: [
       {
         medication_name: 'Lorazepam',
-        does: '0.5mg tab',
+        dose: '0.5mg tab',
         frequency: 'every 6 hours',
         time: 'As needed',
         prescribed_by: 'Dr. Tabata',
         for: 'Anxiety',
-        route: 'By mouth',
+        route: 'By mouth'
       },
       {
         medication_name: 'Hydroxyzine',
-        does: '25mg tab',
+        dose: '25mg tab',
         frequency: 'Twice a day',
         time: '8am and 8pm',
         prescribed_by: 'Dr. Yomama',
         for: 'Anxiety and tension',
-        route: 'By mouth',
+        route: 'By mouth'
       },
       {
         medication_name: 'Citalorpram',
-        does: '10mg tab',
+        dose: '10mg tab',
         frequency: 'Once a day',
         time: 'Morning',
         prescribed_by: 'Dr. Fox',
         for: 'Depression',
-        route: 'By mouth',
-      },
-    ],
-  },
+        route: 'By mouth'
+      }
+    ]
+  }
 ]
 
 users.each do |user|
@@ -241,7 +243,7 @@ patients.each do |patient|
     gender: patient[:gender],
     pronoun: patient[:pronoun],
     image: patient[:image],
-    need_to_know: patient[:need_to_know],
+    need_to_know: patient[:need_to_know]
   )
   patient[:medications].each do |medication|
     Patient.last.medications.create(
@@ -251,7 +253,7 @@ patients.each do |patient|
       time: medication[:time],
       prescribed_by: medication[:prescribed_by],
       for: medication[:for],
-      route: medication[:route],
+      route: medication[:route]
     )
   end
   puts "Creating patient #{patient}"
