@@ -1,27 +1,13 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/learnacademy/Desktop/rapidpx/spec/requests/patients_spec.rb": {
+      "/Users/learnacademy/Desktop/rapidpx/spec/models/patient_spec.rb": {
         "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           1,
           null,
-          null,
+          1,
           1,
           null,
           null,
@@ -33,45 +19,34 @@
           null,
           null,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
           null,
           null,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
+          null,
           1,
           null,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           1,
-          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
           1,
           1,
@@ -87,24 +62,20 @@
           1,
           1,
           null,
-          null,
           1,
           1,
           1,
           1,
           1,
           1,
-          1,
-          1,
-          1,
-          1,
-          null,
           null,
           null
         ]
       },
       "/Users/learnacademy/Desktop/rapidpx/spec/rails_helper.rb": {
         "lines": [
+          null,
+          null,
           null,
           1,
           1,
@@ -174,6 +145,8 @@
       "/Users/learnacademy/Desktop/rapidpx/config/environment.rb": {
         "lines": [
           null,
+          null,
+          null,
           1,
           null,
           null,
@@ -182,6 +155,8 @@
       },
       "/Users/learnacademy/Desktop/rapidpx/config/application.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -224,6 +199,8 @@
       },
       "/Users/learnacademy/Desktop/rapidpx/config/boot.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -232,6 +209,8 @@
       },
       "/Users/learnacademy/Desktop/rapidpx/config/environments/test.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           null,
@@ -303,11 +282,14 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
       "/Users/learnacademy/Desktop/rapidpx/config/initializers/assets.rb": {
         "lines": [
+          null,
+          null,
           null,
           null,
           null,
@@ -326,6 +308,8 @@
       },
       "/Users/learnacademy/Desktop/rapidpx/config/initializers/backtrace_silencers.rb": {
         "lines": [
+          null,
+          null,
           null,
           null,
           null,
@@ -367,11 +351,14 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
       "/Users/learnacademy/Desktop/rapidpx/config/initializers/cookies_serializer.rb": {
         "lines": [
+          null,
+          null,
           null,
           null,
           null,
@@ -699,6 +686,8 @@
           null,
           null,
           null,
+          null,
+          null,
           1,
           null,
           null
@@ -706,6 +695,7 @@
       },
       "/Users/learnacademy/Desktop/rapidpx/config/initializers/inflections.rb": {
         "lines": [
+          null,
           null,
           null,
           null,
@@ -729,11 +719,13 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
       "/Users/learnacademy/Desktop/rapidpx/config/initializers/permissions_policy.rb": {
         "lines": [
+          null,
           null,
           null,
           null,
@@ -755,6 +747,8 @@
           null,
           null,
           null,
+          null,
+          null,
           1,
           2,
           null,
@@ -767,6 +761,8 @@
       },
       "/Users/learnacademy/Desktop/rapidpx/config/routes.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -778,6 +774,8 @@
       },
       "/Users/learnacademy/Desktop/rapidpx/app/models/user.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           null,
@@ -788,6 +786,8 @@
       },
       "/Users/learnacademy/Desktop/rapidpx/app/models/application_record.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null
@@ -795,64 +795,38 @@
       },
       "/Users/learnacademy/Desktop/rapidpx/app/helpers/application_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/Users/learnacademy/Desktop/rapidpx/app/helpers/home_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/Users/learnacademy/Desktop/rapidpx/app/helpers/medications_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/Users/learnacademy/Desktop/rapidpx/app/helpers/patients_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/Users/learnacademy/Desktop/rapidpx/app/models/patient.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/learnacademy/Desktop/rapidpx/app/controllers/patients_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          2,
-          null,
-          2,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          2,
-          2,
-          null,
-          2,
-          1,
-          null,
-          1,
           null,
           null,
           1,
@@ -861,33 +835,15 @@
           1,
           null,
           null,
-          1,
-          null,
-          1,
-          4,
           null,
           null,
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/learnacademy/Desktop/rapidpx/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
           null
         ]
       }
     },
-    "timestamp": 1645038325
+    "timestamp": 1645045668
   }
 }
