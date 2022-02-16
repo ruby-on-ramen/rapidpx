@@ -18,8 +18,11 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@prettier/plugin-ruby": "^2.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
+    "prettier": "^2.5.1",
+    "prettier-plugin-erb": "^0.4.0",
     "react-test-renderer": "^17.0.2",
     "webpack-dev-server": "^3"
   }
