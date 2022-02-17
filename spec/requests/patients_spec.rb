@@ -13,7 +13,7 @@ RSpec.describe 'Patients', type: :request do
     pronoun: 'She/her',
     image:
       'https://i2-prod.mirror.co.uk/incoming/article11979857.ece/ALTERNATES/s1200d/Hannah-Hauxwell.jpg',
-    need_to_know: 'Hard to wake up'
+    need_to_know: 'Hard to wake up',
   }
 
   patient_1_edit = { first_name: 'Hannah' }
@@ -27,7 +27,7 @@ RSpec.describe 'Patients', type: :request do
     gender: '',
     pronoun: 'She/her',
     image: '',
-    need_to_know: 'Hard to wake up'
+    need_to_know: 'Hard to wake up',
   }
 
   describe 'GET /index' do
