@@ -55,11 +55,10 @@ RSpec.describe Patient, type: :model do
     expect(patient.errors[:pronoun]).to be_empty
     expect(patient.errors[:need_to_know]).to be_empty
   end
-  it 'should have strings for first_name, last_name, gender, image' do
+  it 'should have strings for first_name, last_name, gender' do
     patient = Patient.create(bad_patient_params_2)
     expect(patient.errors[:first_name]).to_not be_empty
     expect(patient.errors[:last_name]).to_not be_empty
     expect(patient.errors[:gender]).to_not be_empty
-    expect(patient.errors[:image]).to_not be_empty
   end
 end
