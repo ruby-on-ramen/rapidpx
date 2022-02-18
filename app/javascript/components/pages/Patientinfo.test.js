@@ -14,7 +14,4 @@ describe("when Patientinfo  renders", () => {
   });
 });
 
-// img file
-// first_name
-// last_name
-// edit patient button
+

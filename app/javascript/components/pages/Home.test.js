@@ -14,14 +14,3 @@ describe("When Home renders", () => {
   });
 });
 
-// describe("When home renders", () => {
-//   it("displays a", () => {
-//     const home = shallow(<Home />);
-//     const homeHeading = home.find("h1").text();
-//     expect(homeHeading).toEqual("Patients");
-//   });
-// });
-
-// img file
-// first_name
-// last_name
