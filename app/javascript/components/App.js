@@ -50,9 +50,9 @@ export default class App extends Component {
             <Route
               path="/patientinfo/:id"
               render={(props) => {
-                let id = +props.match.params.id;
+                const id = +props.match.params.id;
                 console.log(id);
-                let patientInfo = this.state.patientsArray.find(
+                const patientInfo = this.state.patientsArray.find(
                   (patient) => patient.id === id
                 );
                 return <PatientInfo patientInfo={patientInfo} id={id} />;

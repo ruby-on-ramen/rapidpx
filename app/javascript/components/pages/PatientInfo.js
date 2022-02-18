@@ -14,7 +14,7 @@ export default class PatientInfo extends Component {
         pronound: "",
         image: "",
         need_to_know: "",
-        medications: [],
+        medications: null,
       },
     };
   }
@@ -29,7 +29,6 @@ export default class PatientInfo extends Component {
       .then((patient) => this.setState({ patient: patient }))
       .catch((errors) => console.log("Medications errors:", errors));
   };
-
   render() {
     const {
       first_name,
@@ -50,14 +49,14 @@ export default class PatientInfo extends Component {
         <h2>
           {patient.first_name} {patient.last_name}
         </h2>
-        {console.log("here", medications)}
-        {medications.map((medication, idx) => {
-          return (
-            <div key={idx}>
-              <p>{medication.medication_name}</p>
-            </div>
-          );
-        })}
+        {medications &&
+          medications.map((medication, idx) => {
+            return (
+              <div key={idx}>
+                <p>{medication.medication_name}</p>
+              </div>
+            );
+          })}
       </div>
     );
   }
