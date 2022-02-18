@@ -34,5 +34,8 @@
     "roots": [
       "app/javascript/components"
     ]
+  },
+  "scripts": {
+    "test": "jest --coverage"
   }
 }
