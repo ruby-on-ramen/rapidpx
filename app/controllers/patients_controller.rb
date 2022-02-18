@@ -5,7 +5,8 @@ class PatientsController < ApplicationController
     patients = Patient.all
     render json: patients
   end
-# needs include to retrieve medications attached to patient
+
+  # needs include to retrieve medications attached to patient
   def show
     patient = Patient.find(params[:id]).as_json(include: :medications)
     render json: patient
@@ -52,7 +53,7 @@ class PatientsController < ApplicationController
         :gender,
         :pronoun,
         :image,
-        :need_to_know
+        :need_to_know,
       )
   end
 end
