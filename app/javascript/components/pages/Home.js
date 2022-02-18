@@ -7,6 +7,7 @@ export default class Home extends Component {
     return (
       <>
         <h1>Patients</h1>
+
         {patientsArray.map((patient) => {
           return (
             <NavLink to={`/patientinfo/${patient.id}`} key={patient.id}>
