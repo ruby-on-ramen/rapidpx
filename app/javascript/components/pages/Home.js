@@ -18,8 +18,10 @@ export default class Home extends Component {
               <p>{patient.first_name}</p>
               <p>{patient.last_name}</p>
             </NavLink>
+            
           );
         })}
+        <a href="/patientnew" className="backButton">Add A Patient</a>
       </>
     );
   }

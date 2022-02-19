@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PatientEdit from "./PatientEdit";
+
 
 export default class PatientInfo extends Component {
   constructor(props) {
@@ -11,7 +13,7 @@ export default class PatientInfo extends Component {
         preferred_name: "",
         dob: "",
         gender: "",
-        pronound: "",
+        pronoun: "",
         image: "",
         need_to_know: "",
         medications: null,
@@ -44,11 +46,20 @@ export default class PatientInfo extends Component {
     } = this.state.patient;
     const { patient } = this.state;
     return (
+      <>
       <div>
         <img src={patient.image} alt={patient.first_name} />
         <h2>
-          {patient.first_name} {patient.last_name}
+          {patient.first_name} {patient.middle_name} {patient.last_name}
         </h2>
+        <ul>
+          <li>Preferred name: {patient.preferred_name}</li>
+          <li>DOB: {patient.dob}</li>
+          <li>Gender: {patient.gender}</li>
+          <li>Pronoun: {patient.pronoun}</li>
+          <li>Need To Know: {patient.need_to_know}</li>
+        </ul>
+        <h3>Medications</h3>
         {medications &&
           medications.map((medication, idx) => {
             return (
@@ -58,6 +69,8 @@ export default class PatientInfo extends Component {
             );
           })}
       </div>
+      
+      </>
     );
   }
 }

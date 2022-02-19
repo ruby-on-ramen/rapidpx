@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import PatientInfo from "./pages/PatientInfo";
 import PatientNew from "./pages/PatientNew";
+import PatientEdit from "./pages/PatientEdit"
 import "./App.css";
 
 export default class App extends Component {
@@ -48,6 +49,20 @@ export default class App extends Component {
       .catch((errors) => console.log("create errors:", errors));
   };
 
+  updatePatient = (updatePatient, id) => {
+    fetch(`/patients/${id}`, {
+      body: JSON.stringify(updatePatient),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+    })
+      .then((response) => response.json())
+      .then(()=> this.readPatients())
+      .catch((errors) => console.log("Patient Update Errors:", errors))
+        
+  };
+
   render() {
     const {
       logged_in,
@@ -80,6 +95,17 @@ export default class App extends Component {
             <Route
               path="/patientnew"
               render={() => <PatientNew createPatient={this.createPatient} />}
+            />
+             <Route
+              path="/patient/:id/edit"
+              render={(props) => {
+                const id = props.match.params.id;
+                console.log(id);
+                const patientInfo = this.state.patientsArray.find(
+                  (patient) => patient.id === +id
+                );
+                return <PatientEdit updatePatient={this.updatePatient} id={id} />;
+              }}
             />
           </Switch>
           {/* <Footer /> */}
