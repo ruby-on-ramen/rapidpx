@@ -8,6 +8,7 @@ import {
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import PatientInfo from "./pages/PatientInfo";
+import PatientNew from "./pages/PatientNew";
 import "./App.css";
 
 export default class App extends Component {
@@ -27,6 +28,24 @@ export default class App extends Component {
       .then((resp) => resp.json())
       .then((patients) => this.setState({ patientsArray: patients }))
       .catch((errors) => console.log("Patients errors:", errors));
+  };
+
+  createPatient = (newPatient) => {
+    fetch("/patients", {
+      body: JSON.stringify(newPatient),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => {
+        if (response.status === 422) {
+          alert("There is something wrong with your submission.");
+        }
+        return response.json();
+      })
+      .then(() => this.readPatients())
+      .catch((errors) => console.log("create errors:", errors));
   };
 
   render() {
@@ -57,6 +76,10 @@ export default class App extends Component {
                 );
                 return <PatientInfo patientInfo={patientInfo} id={id} />;
               }}
+            />
+            <Route
+              path="/patientnew"
+              render={() => <PatientNew createPatient={this.createPatient} />}
             />
           </Switch>
           {/* <Footer /> */}
