@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
-import "./PatientNew.css";
+// import "./PatientNew.css";
 
 export default class PatientEdit extends Component {
   constructor(props) {
