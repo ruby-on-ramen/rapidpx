@@ -123,7 +123,9 @@ export default class PatientNew extends Component {
           <Button onClick={this.handleSubmit} className="backButton">
             Add Patient
           </Button>
-          <a href="/" className="backButton">Back</a>
+          <a href="/" className="backButton">
+            Back
+          </a>
         </Form>
         {this.state.submitted && <Redirect to="/" />}
       </>

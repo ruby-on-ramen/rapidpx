@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PatientEdit from "./PatientEdit";
 
-
 export default class PatientInfo extends Component {
   constructor(props) {
     super(props);
@@ -47,29 +46,41 @@ export default class PatientInfo extends Component {
     const { patient } = this.state;
     return (
       <>
-      <div>
-        <img src={patient.image} alt={patient.first_name} />
-        <h2>
-          {patient.first_name} {patient.middle_name} {patient.last_name}
-        </h2>
-        <ul>
-          <li>Preferred name: {patient.preferred_name}</li>
-          <li>DOB: {patient.dob}</li>
-          <li>Gender: {patient.gender}</li>
-          <li>Pronoun: {patient.pronoun}</li>
-          <li>Need To Know: {patient.need_to_know}</li>
-        </ul>
-        <h3>Medications</h3>
-        {medications &&
-          medications.map((medication, idx) => {
-            return (
-              <div key={idx}>
-                <p>{medication.medication_name}</p>
-              </div>
-            );
-          })}
-      </div>
-      
+        <div>
+          <img src={patient.image} alt={patient.first_name} />
+          <h2>
+            {patient.first_name} {patient.middle_name} {patient.last_name}
+          </h2>
+          <ul>
+            <li>Preferred name: {patient.preferred_name}</li>
+            <li>DOB: {patient.dob}</li>
+            <li>Gender: {patient.gender}</li>
+            <li>Pronoun: {patient.pronoun}</li>
+            <li>Need To Know: {patient.need_to_know}</li>
+          </ul>
+          <h3>Medications</h3>
+          {medications &&
+            medications.map((medication, idx) => {
+              return (
+                <div key={idx}>
+                  <p>{medication.medication_name}</p>
+                </div>
+              );
+            })}
+        </div>
+        <a href={`/patientedit/${this.props.id}`} className="backButton">
+          Edit Patient
+        </a>
+        <a
+          href="/"
+          className="backButton"
+          onClick={() => this.props.deletePatient(this.props.id)}
+        >
+          Delete Patient
+        </a>
+        <a href="/" className="backButton">
+          Back
+        </a>
       </>
     );
   }

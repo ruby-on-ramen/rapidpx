@@ -1,25 +1,32 @@
-
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 import "./PatientNew.css";
 
-
 export default class PatientEdit extends Component {
   constructor(props) {
     super(props);
-    let { first_name, last_name, middle_name, preferred_name, dob, gender, pronoun, image, need_to_know
+    let {
+      first_name,
+      last_name,
+      middle_name,
+      preferred_name,
+      dob,
+      gender,
+      pronoun,
+      image,
+      need_to_know,
     } = this.props.id;
-    
+
     this.state = {
       updatePatient: {
         first_name: first_name ? first_name : "",
-        last_name:  last_name ?  last_name : "",
+        last_name: last_name ? last_name : "",
         middle_name: middle_name ? middle_name : "",
         preferred_name: preferred_name ? preferred_name : "",
         dob: dob ? dob : "",
         gender: gender ? gender : "",
-        pronoun:  pronoun ? pronoun : "",
+        pronoun: pronoun ? pronoun : "",
         image: image ? image : "",
         need_to_know: need_to_know ? need_to_know : "",
       },
@@ -38,7 +45,7 @@ export default class PatientEdit extends Component {
   };
 
   handleSubmit = () => {
-    this.props.updatePatient(this.state.updatePatient);
+    this.props.updatePatient(this.state.updatePatient, this.props.id);
     this.setState({ submitted: true });
   };
 
@@ -51,18 +58,17 @@ export default class PatientEdit extends Component {
 
   render() {
     const {
-        first_name,
-        middle_name,
-        last_name,
-        preferred_name,
-        dob,
-        gender,
-        pronoun,
-        image,
-        need_to_know,
-        medications,
-      } = this.state.updatePatient;
-    console.log(this.props.id);
+      first_name,
+      middle_name,
+      last_name,
+      preferred_name,
+      dob,
+      gender,
+      pronoun,
+      image,
+      need_to_know,
+      medications,
+    } = this.state.updatePatient;
     return (
       <>
         <h3>Edit A Patient's Information</h3>
@@ -160,9 +166,13 @@ export default class PatientEdit extends Component {
           <Button onClick={this.handleSubmit} className="backButton">
             Edit Patient
           </Button>
-          <a href="/patientinfo" className="backButton">Back</a>
+          <a href={`/patientinfo/${this.props.id}`} className="backButton">
+            Back
+          </a>
         </Form>
-        {this.state.submitted && <Redirect to="/patientInfo" />}
+        {this.state.submitted && (
+          <Redirect to={`/patientinfo/${this.props.id}`} />
+        )}
       </>
     );
   }

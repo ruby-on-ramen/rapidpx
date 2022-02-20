@@ -7,21 +7,23 @@ export default class Home extends Component {
     return (
       <>
         <h1>Patients</h1>
-        {patientsArray && patientsArray.map((patient) => {
-          return (
-            <NavLink to={`/patientinfo/${patient.id}`} key={patient.id}>
-              <img
-                src={patient.image}
-                alt={patient.first_name}
-                style={{ width: "200px" }}
-              />
-              <p>{patient.first_name}</p>
-              <p>{patient.last_name}</p>
-            </NavLink>
-            
-          );
-        })}
-        <a href="/patientnew" className="backButton">Add A Patient</a>
+        {patientsArray &&
+          patientsArray.map((patient) => {
+            return (
+              <NavLink to={`/patientinfo/${patient.id}`} key={patient.id}>
+                <img
+                  src={patient.image}
+                  alt={patient.first_name}
+                  style={{ width: "200px" }}
+                />
+                <p>{patient.first_name}</p>
+                <p>{patient.last_name}</p>
+              </NavLink>
+            );
+          })}
+        <a href="/patientnew" className="backButton">
+          Add A Patient
+        </a>
       </>
     );
   }
