@@ -82,7 +82,7 @@ export default class App extends Component {
     return (
       <>
         <Router>
-          {/* <Header {...this.props} /> */}
+          <Header {...this.props} />
           <Switch>
             <Route
               exact
