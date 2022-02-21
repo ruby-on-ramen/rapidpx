@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PatientEdit from "./PatientEdit";
 
 export default class PatientInfo extends Component {
   constructor(props) {
@@ -11,10 +12,10 @@ export default class PatientInfo extends Component {
         preferred_name: "",
         dob: "",
         gender: "",
-        pronound: "",
+        pronoun: "",
         image: "",
         need_to_know: "",
-        medications: [],
+        medications: null,
       },
     };
   }
@@ -29,7 +30,6 @@ export default class PatientInfo extends Component {
       .then((patient) => this.setState({ patient: patient }))
       .catch((errors) => console.log("Medications errors:", errors));
   };
-
   render() {
     const {
       first_name,
@@ -43,22 +43,44 @@ export default class PatientInfo extends Component {
       need_to_know,
       medications,
     } = this.state.patient;
-    const { patient } = this.state;
     return (
-      <div>
-        <img src={patient.image} alt={patient.first_name} />
-        <h2>
-          {patient.first_name} {patient.last_name}
-        </h2>
-        {console.log("here", medications)}
-        {medications.map((medication, idx) => {
-          return (
-            <div key={idx}>
-              <p>{medication.medication_name}</p>
-            </div>
-          );
-        })}
-      </div>
+      <>
+        <div>
+          <img src={image} alt={first_name} />
+          <h2>
+            {first_name} {middle_name} {last_name}
+          </h2>
+          <ul>
+            <li>Preferred name: {preferred_name}</li>
+            <li>DOB: {dob}</li>
+            <li>Gender: {gender}</li>
+            <li>Pronoun: {pronoun}</li>
+            <li>Need To Know: {need_to_know}</li>
+          </ul>
+          <h3>Medications</h3>
+          {medications &&
+            medications.map((medication, idx) => {
+              return (
+                <div key={idx}>
+                  <p>{medication.medication_name}</p>
+                </div>
+              );
+            })}
+        </div>
+        <a href={`/patientedit/${this.props.id}`} className="backButton">
+          Edit Patient
+        </a>
+        <a
+          href="/"
+          className="backButton"
+          onClick={() => this.props.deletePatient(this.props.id)}
+        >
+          Delete Patient
+        </a>
+        <a href="/" className="backButton">
+          Back
+        </a>
+      </>
     );
   }
 }
