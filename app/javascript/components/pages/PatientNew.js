@@ -45,7 +45,7 @@ export default class PatientNew extends Component {
       image,
       need_to_know,
       medications,
-    } = this.state.patient;
+    } = this.state.newPatient;
     return (
       <>
         <h3>Add a New Patient</h3>
@@ -138,7 +138,7 @@ export default class PatientNew extends Component {
             Back
           </a>
         </Form>
-        {submitted && <Redirect to="/" />}
+        {this.state.submitted && <Redirect to="/" />}
       </>
     );
   }

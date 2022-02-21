@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PatientEdit from "./PatientEdit";
+import { Link } from "react-router-dom";
 
 export default class PatientInfo extends Component {
   constructor(props) {
@@ -24,12 +24,16 @@ export default class PatientInfo extends Component {
     this.readMedications();
   }
 
-  readMedications = () => {
-    fetch(`/patients/${this.props.id}`)
-      .then((resp) => resp.json())
-      .then((patient) => this.setState({ patient: patient }))
-      .catch((errors) => console.log("Medications errors:", errors));
+  readMedications = async () => {
+    try {
+      const response = await fetch(`/patients/${this.props.id}`);
+      const patient = await response.json();
+      this.setState({ patient });
+    } catch (error) {
+      console.error(error);
+    }
   };
+
   render() {
     const {
       first_name,
@@ -67,19 +71,20 @@ export default class PatientInfo extends Component {
               );
             })}
         </div>
-        <a href={`/patientedit/${this.props.id}`} className="backButton">
-          Edit Patient
-        </a>
-        <a
-          href="/"
-          className="backButton"
-          onClick={() => this.props.deletePatient(this.props.id)}
-        >
-          Delete Patient
-        </a>
-        <a href="/" className="backButton">
-          Back
-        </a>
+        <Link to={`/patientedit/${this.props.id}`}>
+          <button className="backButton">Edit Patient</button>
+        </Link>
+        <Link to="/">
+          <button
+            className="backButton"
+            onClick={() => this.props.deletePatient(this.props.id)}
+          >
+            Delete
+          </button>
+        </Link>
+        <Link to="/">
+          <button className="backButton">Back</button>
+        </Link>
       </>
     );
   }
