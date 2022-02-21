@@ -23,7 +23,7 @@ export default class PatientNew extends Component {
   }
 
   handleChange = (e) => {
-    let { newPatient } = this.state;
+    const { newPatient } = this.state;
     newPatient[e.target.name] = e.target.value;
     this.setState({ newPatient: newPatient });
   };
@@ -34,7 +34,18 @@ export default class PatientNew extends Component {
   };
 
   render() {
-    console.log(this.state.newPatient);
+    const {
+      first_name,
+      middle_name,
+      last_name,
+      preferred_name,
+      dob,
+      gender,
+      pronoun,
+      image,
+      need_to_know,
+      medications,
+    } = this.state.patient;
     return (
       <>
         <h3>Add a New Patient</h3>
@@ -45,7 +56,7 @@ export default class PatientNew extends Component {
               type="text"
               name="first_name"
               onChange={this.handleChange}
-              value={this.state.newPatient.first_name}
+              value={first_name}
             />
           </FormGroup>
           <FormGroup>
@@ -54,7 +65,7 @@ export default class PatientNew extends Component {
               type="text"
               name="middle_name"
               onChange={this.handleChange}
-              value={this.state.newPatient.middle_name}
+              value={middle_name}
             />
           </FormGroup>
           <FormGroup>
@@ -63,7 +74,7 @@ export default class PatientNew extends Component {
               type="text"
               name="last_name"
               onChange={this.handleChange}
-              value={this.state.newPatient.last_name}
+              value={last_name}
             />
           </FormGroup>
           <FormGroup>
@@ -72,7 +83,7 @@ export default class PatientNew extends Component {
               type="text"
               name="preferred_name"
               onChange={this.handleChange}
-              value={this.state.newPatient.preferred_name}
+              value={preferred_name}
             />
           </FormGroup>
           <FormGroup>
@@ -81,7 +92,7 @@ export default class PatientNew extends Component {
               type="date"
               name="dob"
               onChange={this.handleChange}
-              value={this.state.newPatient.dob}
+              value={dob}
             />
           </FormGroup>
           <FormGroup>
@@ -90,7 +101,7 @@ export default class PatientNew extends Component {
               type="text"
               name="gender"
               onChange={this.handleChange}
-              value={this.state.newPatient.gender}
+              value={gender}
             />
           </FormGroup>
           <FormGroup>
@@ -99,7 +110,7 @@ export default class PatientNew extends Component {
               type="text"
               name="pronoun"
               onChange={this.handleChange}
-              value={this.state.newPatient.pronoun}
+              value={pronoun}
             />
           </FormGroup>
           <FormGroup>
@@ -108,7 +119,7 @@ export default class PatientNew extends Component {
               type="text"
               name="image"
               onChange={this.handleChange}
-              value={this.state.newPatient.image}
+              value={image}
             />
           </FormGroup>
           <FormGroup>
@@ -117,7 +128,7 @@ export default class PatientNew extends Component {
               type="text"
               name="need_to_know"
               onChange={this.handleChange}
-              value={this.state.newPatient.need_to_know}
+              value={need_to_know}
             />
           </FormGroup>
           <Button onClick={this.handleSubmit} className="backButton">
@@ -127,7 +138,7 @@ export default class PatientNew extends Component {
             Back
           </a>
         </Form>
-        {this.state.submitted && <Redirect to="/" />}
+        {submitted && <Redirect to="/" />}
       </>
     );
   }

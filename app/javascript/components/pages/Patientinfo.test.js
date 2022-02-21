@@ -13,17 +13,17 @@ Enzyme.configure({ adapter: new Adapter() });
 describe("when PatientInfo renders", () => {
   it("has a button to delete the patient info", () => {
     const info = shallow(<PatientInfo id={1} />);
-    let infoButton = info.find('a[children="Delete Patient"]')
+    const infoButton = info.find('a[children="Delete Patient"]');
     expect(infoButton.length).toEqual(1);
   });
   it("has a button to edit the patient info", () => {
     const info = shallow(<PatientInfo id={1} />);
-    let infoButton = info.find('a[children="Edit Patient"]')
+    const infoButton = info.find('a[children="Edit Patient"]');
     expect(infoButton.length).toEqual(1);
   });
   it("has a button to go back to all patients", () => {
     const info = shallow(<PatientInfo id={1} />);
-    let infoButton = info.find('a[children="Back"]')
+    const infoButton = info.find('a[children="Back"]');
     expect(infoButton.length).toEqual(1);
   });
 });

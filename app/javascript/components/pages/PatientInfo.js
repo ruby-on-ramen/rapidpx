@@ -43,20 +43,19 @@ export default class PatientInfo extends Component {
       need_to_know,
       medications,
     } = this.state.patient;
-    const { patient } = this.state;
     return (
       <>
         <div>
-          <img src={patient.image} alt={patient.first_name} />
+          <img src={image} alt={first_name} />
           <h2>
-            {patient.first_name} {patient.middle_name} {patient.last_name}
+            {first_name} {middle_name} {last_name}
           </h2>
           <ul>
-            <li>Preferred name: {patient.preferred_name}</li>
-            <li>DOB: {patient.dob}</li>
-            <li>Gender: {patient.gender}</li>
-            <li>Pronoun: {patient.pronoun}</li>
-            <li>Need To Know: {patient.need_to_know}</li>
+            <li>Preferred name: {preferred_name}</li>
+            <li>DOB: {dob}</li>
+            <li>Gender: {gender}</li>
+            <li>Pronoun: {pronoun}</li>
+            <li>Need To Know: {need_to_know}</li>
           </ul>
           <h3>Medications</h3>
           {medications &&

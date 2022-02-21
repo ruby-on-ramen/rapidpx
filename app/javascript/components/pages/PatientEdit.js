@@ -79,7 +79,7 @@ export default class PatientEdit extends Component {
               type="text"
               name="first_name"
               onChange={this.handleChange}
-              value={this.state.updatePatient.first_name}
+              value={first_name}
             />
           </FormGroup>
           <br />
@@ -89,7 +89,7 @@ export default class PatientEdit extends Component {
               type="text"
               name="middle_name"
               onChange={this.handleChange}
-              value={this.state.updatePatient.middle_name}
+              value={middle_name}
             />
           </FormGroup>
           <br />
@@ -99,7 +99,7 @@ export default class PatientEdit extends Component {
               type="text"
               name="last_name"
               onChange={this.handleChange}
-              value={this.state.updatePatient.last_name}
+              value={last_name}
             />
           </FormGroup>
           <br />
@@ -109,7 +109,7 @@ export default class PatientEdit extends Component {
               type="text"
               name="preferred_name"
               onChange={this.handleChange}
-              value={this.state.updatePatient.preferred_name}
+              value={preferred_name}
             />
           </FormGroup>
           <br />
@@ -119,7 +119,7 @@ export default class PatientEdit extends Component {
               type="date"
               name="dob"
               onChange={this.handleChange}
-              value={this.state.updatePatient.dob}
+              value={dob}
             />
           </FormGroup>
           <br />
@@ -129,7 +129,7 @@ export default class PatientEdit extends Component {
               type="text"
               name="gender"
               onChange={this.handleChange}
-              value={this.state.updatePatient.gender}
+              value={gender}
             />
           </FormGroup>
           <br />
@@ -139,7 +139,7 @@ export default class PatientEdit extends Component {
               type="text"
               name="pronoun"
               onChange={this.handleChange}
-              value={this.state.updatePatient.pronoun}
+              value={pronoun}
             />
           </FormGroup>
           <br />
@@ -149,7 +149,7 @@ export default class PatientEdit extends Component {
               type="text"
               name="image"
               onChange={this.handleChange}
-              value={this.state.updatePatient.image}
+              value={image}
             />
           </FormGroup>
           <br />
@@ -159,7 +159,7 @@ export default class PatientEdit extends Component {
               type="text"
               name="need_to_know"
               onChange={this.handleChange}
-              value={this.state.updatePatient.need_to_know}
+              value={need_to_know}
             />
           </FormGroup>
           <br />
