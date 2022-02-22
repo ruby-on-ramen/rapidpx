@@ -1,42 +1,41 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Input, Label, Button } from "reactstrap";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Form, FormGroup, Input, Label } from "reactstrap";
 
-export default class MedicationNew extends Component {
+export default class MedicationEdit extends Component {
   constructor(props) {
     super(props);
+    const { medication_name, dose, frequency, time, route, tx, prescribed_by } =
+      this.props.medication;
+
     this.state = {
-      newMedication: {
-        medication_name: "",
-        dose: "",
-        frequency: "",
-        time: "",
-        prescribed_by: "",
-        tx: "",
-        route: "",
+      updateMedication: {
+        medication_name: medication_name ? medication_name : "",
+        dose: dose ? dose : "",
+        frequency: frequency ? frequency : "",
+        time: time ? time : "",
+        tx: tx ? tx : "",
+        route: route ? route : "",
+        prescribed_by: prescribed_by ? prescribed_by : "",
       },
-      submitted: false,
     };
   }
 
   handleChange = (e) => {
-    const { newMedication } = this.state;
-    newMedication[e.target.name] = e.target.value;
-    this.setState({ newMedication });
+    const { updateMedication } = this.state;
+    updateMedication[e.target.name] = e.target.value;
+    this.setState({ updateMedication });
   };
 
   handleSubmit = () => {
-    this.props.createMedication(this.state.newMedication);
-    this.setState({ submitted: true });
+    this.props.updateMedication(this.state.updateMedication, this.props.id);
   };
 
   render() {
-    const { medication_name, dose, frequency, time, prescribed_by, tx, route } =
-      this.state.newMedication;
-    console.log(this.state.newMedication);
+    const { medication_name, dose, frequency, time, route, tx, prescribed_by } =
+      this.state.updateMedication;
     return (
       <>
-        <h3>Add A Medication</h3>
         <Form>
           <FormGroup>
             <Label>Medication Name</Label>
@@ -47,6 +46,7 @@ export default class MedicationNew extends Component {
               value={medication_name}
             />
           </FormGroup>
+          <br />
           <FormGroup>
             <Label>Dose</Label>
             <Input
@@ -56,6 +56,7 @@ export default class MedicationNew extends Component {
               value={dose}
             />
           </FormGroup>
+          <br />
           <FormGroup>
             <Label>Frequency</Label>
             <Input
@@ -65,6 +66,7 @@ export default class MedicationNew extends Component {
               value={frequency}
             />
           </FormGroup>
+          <br />
           <FormGroup>
             <Label>Time</Label>
             <Input
@@ -74,24 +76,7 @@ export default class MedicationNew extends Component {
               value={time}
             />
           </FormGroup>
-          <FormGroup>
-            <Label>Prescribed By</Label>
-            <Input
-              type="text"
-              name="prescribed_by"
-              onChange={this.handleChange}
-              value={prescribed_by}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label>Treatment</Label>
-            <Input
-              type="text"
-              name="tx"
-              onChange={this.handleChange}
-              value={tx}
-            />
-          </FormGroup>
+          <br />
           <FormGroup>
             <Label>Route</Label>
             <Input
@@ -101,16 +86,37 @@ export default class MedicationNew extends Component {
               value={route}
             />
           </FormGroup>
-          <Button onClick={this.handleSubmit} className="backButton">
-            Add Medication
-          </Button>
+          <br />
+          <FormGroup>
+            <Label>Treatment</Label>
+            <Input
+              type="text"
+              name="tx"
+              onChange={this.handleChange}
+              value={tx}
+            />
+          </FormGroup>
+          <br />
+          <FormGroup>
+            <Label>Prescribed By</Label>
+            <Input
+              type="text"
+              name="prescribed_by"
+              onChange={this.handleChange}
+              value={prescribed_by}
+            />
+          </FormGroup>
+          <br />
         </Form>
-        {this.state.submitted && (
-          <Redirect to={`/patientinfo/${this.props.id}`} />
-        )}
-        <Link to={`/patientinfo/${this.props.id}`}>
-          <button className="backButton">Back</button>
-        </Link>
+        <button className="backButton" onClick={this.handleSubmit}>
+          Submit
+        </button>
+        <button
+          className="backButton"
+          onClick={() => this.props.deleteMedication(this.props.id)}
+        >
+          Delete Medication
+        </button>
       </>
     );
   }

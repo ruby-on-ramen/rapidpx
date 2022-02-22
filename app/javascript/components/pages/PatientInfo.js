@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Dropdown } from "reactstrap";
-import MedicationNew from "./MedicationNew"
+import MedicationEdit from "./MedicationEdit";
+import MedicationNew from "./MedicationNew";
 import MedicationShow from "./MedicationShow";
 
 export default class PatientInfo extends Component {
@@ -56,6 +56,46 @@ export default class PatientInfo extends Component {
     }
   };
 
+  updateMedication = async (updateMedication, id) => {
+    try {
+      const response = await fetch(
+        `/patients/${this.props.id}/medications/${id}`,
+        {
+          body: JSON.stringify(updateMedication),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "PATCH",
+        }
+      );
+      if (response.status !== 200 && response.status !== 304) {
+        alert("Something went wrong with your medication update.");
+        return;
+      }
+      this.readMedications();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  deleteMedication = async (id) => {
+    try {
+      const response = await fetch(
+        `/patients/${this.props.id}/medications/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (response.status !== 200 && response.status !== 304) {
+        alert("Something went wrong with your medication delete.");
+        return;
+      }
+      this.readMedications();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   render() {
     const {
       first_name,
@@ -88,18 +128,27 @@ export default class PatientInfo extends Component {
             medications.map((medication, idx) => {
               return (
                 <div key={idx}>
-                  <h4>{medication.medication_name}</h4>
-                  <Dropdown>
-                  <ul>
-                    <li>Time: {medication.time}</li>
-                    <li>Dose: {medication.dose}</li>
-                    <li>Route: {medication.route}</li>
-                    <li>Treatment: {medication.tx}</li>
-                    <li>Prescribed By: {medication.prescribed_by}</li>
-                  </ul>
-                  </Dropdown>
-                  {/* <MedicationShow  id={medication.id}  */}
-                  {/* /> */}
+                  <a
+                    href={`https://pubchem.ncbi.nlm.nih.gov/compound/${medication.medication_name}`}
+                    target="_blank"
+                  >
+                    {medication.medication_name}
+                  </a>
+                  <button>Edit</button>
+                  {
+                    <MedicationShow
+                      id={medication.id}
+                      medication={medication}
+                    />
+                  }
+                  {
+                    <MedicationEdit
+                      id={medication.id}
+                      medication={medication}
+                      updateMedication={this.updateMedication}
+                      deleteMedication={this.deleteMedication}
+                    />
+                  }
                 </div>
               );
             })}
@@ -118,11 +167,10 @@ export default class PatientInfo extends Component {
         <Link to="/">
           <button className="backButton">Back</button>
         </Link>
-        <Link to="/medicationnew">
-          <button className="backButton">Input A New Medication</button>
-        </Link>
-        <MedicationNew createMedication={this.createMedication} id={this.props.id} />
-        
+        <MedicationNew
+          createMedication={this.createMedication}
+          id={this.props.id}
+        />
       </>
     );
   }

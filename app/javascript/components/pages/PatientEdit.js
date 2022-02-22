@@ -6,7 +6,7 @@ import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 export default class PatientEdit extends Component {
   constructor(props) {
     super(props);
-    let {
+    const {
       first_name,
       last_name,
       middle_name,
@@ -30,7 +30,6 @@ export default class PatientEdit extends Component {
         image: image ? image : "",
         need_to_know: need_to_know ? need_to_know : "",
       },
-      submitted: false,
     };
   }
 
@@ -41,22 +40,21 @@ export default class PatientEdit extends Component {
   handleChange = (e) => {
     const { updatePatient } = this.state;
     updatePatient[e.target.name] = e.target.value;
-    this.setState({ updatePatient: updatePatient });
+    this.setState({ updatePatient });
   };
 
   handleSubmit = () => {
     this.props.updatePatient(this.state.updatePatient, this.props.id);
-    this.setState({ submitted: true });
   };
 
   readPatient = async () => {
     try {
-      const response = await fetch(`/patients/${this.props.id}`)
-      const updatePatient = await response.json()
-      this.setState({ updatePatient })
+      const response = await fetch(`/patients/${this.props.id}`);
+      const updatePatient = await response.json();
+      this.setState({ updatePatient });
     } catch (error) {
-      console.error(error)
-    } 
+      console.error(error);
+    }
   };
 
   render() {
@@ -168,8 +166,8 @@ export default class PatientEdit extends Component {
           <br />
           <Link
             to={`/patientinfo/${this.props.id}`}
-            onClick={this.handleSubmit}          
-            >
+            onClick={this.handleSubmit}
+          >
             <button className="backButton">Submit</button>
           </Link>
           <Link to="/">

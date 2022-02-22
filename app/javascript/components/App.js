@@ -142,22 +142,6 @@ export default class App extends Component {
                 );
               }}
             />
-            <Route
-              path="/medicationnew"
-              render={(props) => {
-                const id = props.match.params.id;
-                const patientInfo = this.state.patientsArray.find(
-                  (patient) => patient.id === +id
-                );
-                return (
-                  <PatientEdit
-                    patientInfo={patientInfo}
-                    updatePatient={this.updatePatient}
-                    id={id}
-                  />
-                );
-              }}
-            />
           </Switch>
           {/* <Footer /> */}
         </Router>
