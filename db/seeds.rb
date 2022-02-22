@@ -21,7 +21,7 @@ patients = [
         frequency: 'Every 2 hours',
         time: 'As needed',
         prescribed_by: 'Dr. Julio',
-        for: 'Constipation',
+        tx: 'Constipation',
         route: 'By mouth'
       },
       {
@@ -30,7 +30,7 @@ patients = [
         frequency: 'Once a day',
         time: 'Noon',
         prescribed_by: 'Dr. Yomama',
-        for: 'Behavior problems',
+        tx: 'Behavior problems',
         route: 'By mouth'
       },
       {
@@ -39,7 +39,7 @@ patients = [
         frequency: 'Once a day',
         time: 'Before bedtime',
         prescribed_by: 'Dr. Julio',
-        for: 'Antipsychotic',
+        tx: 'Antipsychotic',
         route: 'By mouth'
       }
     ]
@@ -62,7 +62,7 @@ patients = [
         frequency: 'Once a day',
         time: 'Morning',
         prescribed_by: 'Dr. Glam',
-        for: 'Schizophrenia',
+        tx: 'Schizophrenia',
         route: 'Injection'
       },
       {
@@ -71,7 +71,7 @@ patients = [
         frequency: 'Once a day',
         time: 'Before bed',
         prescribed_by: 'Dr. Who',
-        for: 'Antibiotic',
+        tx: 'Antibiotic',
         route: 'Topical'
       },
       {
@@ -80,7 +80,7 @@ patients = [
         frequency: 'Every 6 hours',
         time: 'As needed',
         prescribed_by: 'Dr. Tabata',
-        for: 'Anxiety',
+        tx: 'Anxiety',
         route: 'By mouth'
       },
       {
@@ -89,7 +89,7 @@ patients = [
         frequency: 'Once a day',
         time: 'Morning',
         prescribed_by: 'Dr. Glam',
-        for: 'Itching',
+        tx: 'Itching',
         route: 'Eye drop'
       }
     ]
@@ -112,7 +112,7 @@ patients = [
         frequency: 'As needed',
         time: 'As needed',
         prescribed_by: 'Dr. Who',
-        for: 'Allergies',
+        tx: 'Allergies',
         route: 'By mouth'
       },
       {
@@ -121,7 +121,7 @@ patients = [
         frequency: 'Once a day',
         time: 'evening',
         prescribed_by: 'Dr. Fox',
-        for: 'Pain reliever',
+        tx: 'Pain reliever',
         route: 'By mouth'
       },
       {
@@ -130,7 +130,7 @@ patients = [
         frequency: 'Twice a day',
         time: '8am and 8pm',
         prescribed_by: 'Dr. Yomama',
-        for: 'Itching',
+        tx: 'Itching',
         route: 'By mouth'
       }
     ]
@@ -153,7 +153,7 @@ patients = [
         frequency: 'Once a day',
         time: 'morning',
         prescribed_by: 'Dr. Fox',
-        for: 'Treat depression',
+        tx: 'Treat depression',
         route: 'By mouth'
       },
       {
@@ -162,7 +162,7 @@ patients = [
         frequency: 'Once a day',
         time: 'morning',
         prescribed_by: 'Dr. Biber',
-        for: 'Itching',
+        tx: 'Itching',
         route: 'Eye drop'
       },
       {
@@ -171,7 +171,7 @@ patients = [
         frequency: 'As needed',
         time: 'As needed',
         prescribed_by: 'Dr. Who',
-        for: 'Allergies',
+        tx: 'Allergies',
         route: 'By mouth'
       },
       {
@@ -180,7 +180,7 @@ patients = [
         frequency: 'Once a day',
         time: 'Evening',
         prescribed_by: 'Dr. Fox',
-        for: 'Pain reliever',
+        tx: 'Pain reliever',
         route: 'By mouth'
       }
     ]
@@ -203,7 +203,7 @@ patients = [
         frequency: 'every 6 hours',
         time: 'As needed',
         prescribed_by: 'Dr. Tabata',
-        for: 'Anxiety',
+        tx: 'Anxiety',
         route: 'By mouth'
       },
       {
@@ -212,7 +212,7 @@ patients = [
         frequency: 'Twice a day',
         time: '8am and 8pm',
         prescribed_by: 'Dr. Yomama',
-        for: 'Anxiety and tension',
+        tx: 'Anxiety and tension',
         route: 'By mouth'
       },
       {
@@ -221,7 +221,7 @@ patients = [
         frequency: 'Once a day',
         time: 'Morning',
         prescribed_by: 'Dr. Fox',
-        for: 'Depression',
+        tx: 'Depression',
         route: 'By mouth'
       }
     ]
@@ -252,7 +252,7 @@ patients.each do |patient|
       frequency: medication[:frequency],
       time: medication[:time],
       prescribed_by: medication[:prescribed_by],
-      for: medication[:for],
+      tx: medication[:tx],
       route: medication[:route]
     )
   end

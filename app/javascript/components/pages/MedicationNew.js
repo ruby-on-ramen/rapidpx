@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 export default class MedicationNew extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class MedicationNew extends Component {
         frequency: "",
         time: "",
         prescribed_by: "",
-        for: "heartache",
+        tx: "",
         route: "",
       },
       submitted: false,
@@ -38,7 +38,7 @@ export default class MedicationNew extends Component {
       frequency,
       time,
       prescribed_by,
-      // _for,
+      tx,
       route,
     } = this.state.newMedication;
     console.log(this.state.newMedication);
@@ -91,15 +91,15 @@ export default class MedicationNew extends Component {
               value={prescribed_by}
             />
           </FormGroup>
-          {/* <FormGroup>
-            <Label>For</Label>
+          <FormGroup>
+            <Label>Treatment</Label>
             <Input
               type="text"
-              name="_for"
+              name="tx"
               onChange={this.handleChange}
-              value={_for}
+              value={tx}
             />
-          </FormGroup> */}
+          </FormGroup>
           <FormGroup>
             <Label>Route</Label>
             <Input
@@ -112,11 +112,12 @@ export default class MedicationNew extends Component {
           <Button onClick={this.handleSubmit} className="backButton">
             Add Medication
           </Button>
-          <a href="/patientinfo" className="backButton">
-            Back
-          </a>
+         
         </Form>
         {this.state.submitted && <Redirect to={`/patientinfo/${this.props.id}`} />}
+        <Link to={`/patientinfo/${this.props.id}`}>
+          <button className="backButton">Back</button>
+        </Link>
       </>
     );
   }

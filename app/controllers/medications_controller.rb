@@ -47,7 +47,7 @@ class MedicationsController < ApplicationController
         :frequency,
         :time,
         :prescribed_by,
-        :for,
+        :tx,
         :route,
       )
   end

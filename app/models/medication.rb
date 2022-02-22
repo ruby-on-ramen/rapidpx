@@ -7,7 +7,7 @@ class Medication < ApplicationRecord
             :frequency,
             :time,
             :prescribed_by,
-            :for,
+            :tx,
             :route,
             presence: true
 end

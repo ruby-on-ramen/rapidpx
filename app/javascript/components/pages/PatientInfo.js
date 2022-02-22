@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import MedicationCreate from "./MedicationNew"
+import { Dropdown } from "reactstrap";
+import MedicationNew from "./MedicationNew"
+import MedicationShow from "./MedicationShow";
 
 export default class PatientInfo extends Component {
   constructor(props) {
@@ -86,7 +88,18 @@ export default class PatientInfo extends Component {
             medications.map((medication, idx) => {
               return (
                 <div key={idx}>
-                  <p>{medication.medication_name}</p>
+                  <h4>{medication.medication_name}</h4>
+                  <Dropdown>
+                  <ul>
+                    <li>Time: {medication.time}</li>
+                    <li>Dose: {medication.dose}</li>
+                    <li>Route: {medication.route}</li>
+                    <li>Treatment: {medication.tx}</li>
+                    <li>Prescribed By: {medication.prescribed_by}</li>
+                  </ul>
+                  </Dropdown>
+                  {/* <MedicationShow  id={medication.id}  */}
+                  {/* /> */}
                 </div>
               );
             })}
@@ -105,7 +118,11 @@ export default class PatientInfo extends Component {
         <Link to="/">
           <button className="backButton">Back</button>
         </Link>
-        <MedicationCreate createMedication={this.createMedication} id={this.props.id} />
+        <Link to="/medicationnew">
+          <button className="backButton">Input A New Medication</button>
+        </Link>
+        <MedicationNew createMedication={this.createMedication} id={this.props.id} />
+        
       </>
     );
   }
