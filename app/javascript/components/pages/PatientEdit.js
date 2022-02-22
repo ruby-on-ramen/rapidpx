@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 // import "./PatientNew.css";
 
 export default class PatientEdit extends Component {
   constructor(props) {
     super(props);
-    let {
+    const {
       first_name,
       last_name,
       middle_name,
@@ -30,30 +30,31 @@ export default class PatientEdit extends Component {
         image: image ? image : "",
         need_to_know: need_to_know ? need_to_know : "",
       },
-      submitted: false,
     };
   }
 
   componentDidMount() {
-    this.updateMedications();
+    this.readPatient();
   }
 
   handleChange = (e) => {
     const { updatePatient } = this.state;
     updatePatient[e.target.name] = e.target.value;
-    this.setState({ updatePatient: updatePatient });
+    this.setState({ updatePatient });
   };
 
   handleSubmit = () => {
     this.props.updatePatient(this.state.updatePatient, this.props.id);
-    this.setState({ submitted: true });
   };
 
-  updateMedications = () => {
-    fetch(`/patients/${this.props.id}`)
-      .then((resp) => resp.json())
-      .then((updatePatient) => this.setState({ updatePatient: updatePatient }))
-      .catch((errors) => console.log("Medications errors:", errors));
+  readPatient = async () => {
+    try {
+      const response = await fetch(`/patients/${this.props.id}`);
+      const updatePatient = await response.json();
+      this.setState({ updatePatient });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   render() {
@@ -163,16 +164,24 @@ export default class PatientEdit extends Component {
             />
           </FormGroup>
           <br />
-          <Button onClick={this.handleSubmit} className="backButton">
-            Edit Patient
-          </Button>
-          <a href={`/patientinfo/${this.props.id}`} className="backButton">
-            Back
-          </a>
+          <Link
+            to={`/patientinfo/${this.props.id}`}
+            onClick={this.handleSubmit}
+          >
+            <button className="backButton">Submit</button>
+          </Link>
+          <Link to="/">
+            <button
+              className="backButton"
+              onClick={() => this.props.deletePatient(this.props.id)}
+            >
+              Delete
+            </button>
+          </Link>
+          <Link to={`/patientinfo/${this.props.id}`}>
+            <button className="backButton">Back</button>
+          </Link>
         </Form>
-        {this.state.submitted && (
-          <Redirect to={`/patientinfo/${this.props.id}`} />
-        )}
       </>
     );
   }

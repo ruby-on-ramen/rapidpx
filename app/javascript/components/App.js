@@ -11,6 +11,7 @@ import PatientInfo from "./pages/PatientInfo";
 import PatientNew from "./pages/PatientNew";
 import PatientEdit from "./pages/PatientEdit";
 import "./App.css";
+import { resolveConfig } from "prettier";
 
 export default class App extends Component {
   constructor(props) {
@@ -24,51 +25,67 @@ export default class App extends Component {
     this.readPatients();
   }
 
-  readPatients = () => {
-    fetch("/patients")
-      .then((response) => response.json())
-      .then((patients) => this.setState({ patientsArray: patients }))
-      .catch((errors) => console.log("Patients errors:", errors));
+  readPatients = async () => {
+    try {
+      const response = await fetch("/patients");
+      const patients = await response.json();
+      this.setState({ patientsArray: patients });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  createPatient = (newPatient) => {
-    fetch("/patients", {
-      body: JSON.stringify(newPatient),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-    })
-      .then((response) => {
-        if (response.status === 422) {
-          alert("There is something wrong with your submission.");
-        }
-        return response.json();
-      })
-      .then(() => this.readPatients())
-      .catch((errors) => console.log("create errors:", errors));
+  createPatient = async (newPatient) => {
+    try {
+      const response = await fetch("/patients", {
+        body: JSON.stringify(newPatient),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+      if (response.status !== 200 && response.status !== 304) {
+        alert("There is something wrong with your patient submssion.");
+        return;
+      }
+      this.readPatients();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  updatePatient = (updatePatient, id) => {
-    fetch(`/patients/${id}`, {
-      body: JSON.stringify(updatePatient),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "PATCH",
-    })
-      .then((response) => response.json())
-      .then(() => this.readPatients())
-      .catch((errors) => console.log("Patient Update Errors:", errors));
+  updatePatient = async (updatePatient, id) => {
+    try {
+      const response = await fetch(`/patients/${id}`, {
+        body: JSON.stringify(updatePatient),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "PATCH",
+      });
+      if (response.status !== 200 && response.status !== 304) {
+        alert("Something went wrong with your patient update.");
+        return;
+      }
+      this.readPatients();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  deletePatient = (id) => {
-    fetch(`/patients/${id}`, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then(() => this.readPatients())
-      .catch((errors) => console.log("Patients Delete Errors:", errors));
+  deletePatient = async (id) => {
+    try {
+      const response = await fetch(`/patients/${id}`, {
+        method: "DELETE",
+      });
+      if (response.status !== 200 && response.status !== 304) {
+        alert("Something went wrong with your patient delete.");
+        return;
+      }
+      this.readPatients();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   render() {

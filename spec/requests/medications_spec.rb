@@ -9,7 +9,7 @@ RSpec.describe 'Medications', type: :request do
     frequency: 'Every 2 hours',
     time: 'As needed',
     prescribed_by: 'Dr. Julio',
-    for: 'Constipation',
+    tx: 'Constipation',
     route: 'By mouth',
   }
   bad_medication_1 = {
@@ -18,7 +18,7 @@ RSpec.describe 'Medications', type: :request do
     frequency: '',
     time: '',
     prescribed_by: '',
-    for: '',
+    tx: '',
     route: '',
   }
   updated_medication = { dose: '40ml', frequency: 'EVERY DAY!' }

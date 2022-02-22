@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import PatientEdit from "./PatientEdit";
+import { Link } from "react-router-dom";
+import MedicationEdit from "./MedicationEdit";
+import MedicationNew from "./MedicationNew";
+import MedicationShow from "./MedicationShow";
 
 export default class PatientInfo extends Component {
   constructor(props) {
@@ -24,12 +27,75 @@ export default class PatientInfo extends Component {
     this.readMedications();
   }
 
-  readMedications = () => {
-    fetch(`/patients/${this.props.id}`)
-      .then((resp) => resp.json())
-      .then((patient) => this.setState({ patient: patient }))
-      .catch((errors) => console.log("Medications errors:", errors));
+  readMedications = async () => {
+    try {
+      const response = await fetch(`/patients/${this.props.id}`);
+      const patient = await response.json();
+      this.setState({ patient });
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+  createMedication = async (newMedication) => {
+    try {
+      const response = await fetch(`/patients/${this.props.id}/medications`, {
+        body: JSON.stringify(newMedication),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+      if (response.status !== 200 && response.status !== 304) {
+        alert("There is something wrong with your patient submssion.");
+        return;
+      }
+      this.readMedications();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  updateMedication = async (updateMedication, id) => {
+    try {
+      const response = await fetch(
+        `/patients/${this.props.id}/medications/${id}`,
+        {
+          body: JSON.stringify(updateMedication),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "PATCH",
+        }
+      );
+      if (response.status !== 200 && response.status !== 304) {
+        alert("Something went wrong with your medication update.");
+        return;
+      }
+      this.readMedications();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  deleteMedication = async (id) => {
+    try {
+      const response = await fetch(
+        `/patients/${this.props.id}/medications/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (response.status !== 200 && response.status !== 304) {
+        alert("Something went wrong with your medication delete.");
+        return;
+      }
+      this.readMedications();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   render() {
     const {
       first_name,
@@ -62,24 +128,49 @@ export default class PatientInfo extends Component {
             medications.map((medication, idx) => {
               return (
                 <div key={idx}>
-                  <p>{medication.medication_name}</p>
+                  <a
+                    href={`https://pubchem.ncbi.nlm.nih.gov/compound/${medication.medication_name}`}
+                    target="_blank"
+                  >
+                    {medication.medication_name}
+                  </a>
+                  <button>Edit</button>
+                  {
+                    <MedicationShow
+                      id={medication.id}
+                      medication={medication}
+                    />
+                  }
+                  {
+                    <MedicationEdit
+                      id={medication.id}
+                      medication={medication}
+                      updateMedication={this.updateMedication}
+                      deleteMedication={this.deleteMedication}
+                    />
+                  }
                 </div>
               );
             })}
         </div>
-        <a href={`/patientedit/${this.props.id}`} className="backButton">
-          Edit Patient
-        </a>
-        <a
-          href="/"
-          className="backButton"
-          onClick={() => this.props.deletePatient(this.props.id)}
-        >
-          Delete Patient
-        </a>
-        <a href="/" className="backButton">
-          Back
-        </a>
+        <Link to={`/patientedit/${this.props.id}`}>
+          <button className="backButton">Edit Patient</button>
+        </Link>
+        <Link to="/">
+          <button
+            className="backButton"
+            onClick={() => this.props.deletePatient(this.props.id)}
+          >
+            Delete
+          </button>
+        </Link>
+        <Link to="/">
+          <button className="backButton">Back</button>
+        </Link>
+        <MedicationNew
+          createMedication={this.createMedication}
+          id={this.props.id}
+        />
       </>
     );
   }

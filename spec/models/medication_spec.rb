@@ -9,7 +9,7 @@ RSpec.describe Medication, type: :model do
     frequency: '',
     time: '',
     prescribed_by: '',
-    for: '',
+    tx: '',
     route: '',
   }
 
@@ -35,7 +35,7 @@ RSpec.describe Medication, type: :model do
     expect(med.errors[:frequency]).to_not be_empty
     expect(med.errors[:time]).to_not be_empty
     expect(med.errors[:prescribed_by]).to_not be_empty
-    expect(med.errors[:for]).to_not be_empty
+    expect(med.errors[:tx]).to_not be_empty
     expect(med.errors[:route]).to_not be_empty
   end
 end
