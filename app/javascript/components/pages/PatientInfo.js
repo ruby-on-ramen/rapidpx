@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import MedicationCreate from "./MedicationNew"
 
 export default class PatientInfo extends Component {
   constructor(props) {
@@ -29,6 +30,25 @@ export default class PatientInfo extends Component {
       const response = await fetch(`/patients/${this.props.id}`);
       const patient = await response.json();
       this.setState({ patient });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  createMedication = async (newMedication) => {
+    try {
+      const response = await fetch(`/patients/${this.props.id}/medications`, {
+        body: JSON.stringify(newMedication),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+      if (response.status !== 200 && response.status !== 304) {
+        alert("There is something wrong with your patient submssion.");
+        return;
+      }
+      this.readMedications();
     } catch (error) {
       console.error(error);
     }
@@ -85,6 +105,7 @@ export default class PatientInfo extends Component {
         <Link to="/">
           <button className="backButton">Back</button>
         </Link>
+        <MedicationCreate createMedication={this.createMedication} id={this.props.id} />
       </>
     );
   }

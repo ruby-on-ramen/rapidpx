@@ -99,7 +99,7 @@ export default class App extends Component {
     return (
       <>
         <Router>
-          <Header {...this.props} />
+          {/* <Header {...this.props} /> */}
           <Switch>
             <Route
               exact
@@ -143,7 +143,7 @@ export default class App extends Component {
               }}
             />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </Router>
       </>
     );

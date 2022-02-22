@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 // import "./PatientNew.css";
 
@@ -163,16 +163,24 @@ export default class PatientEdit extends Component {
             />
           </FormGroup>
           <br />
-          <Button onClick={this.handleSubmit} className="backButton">
-            Edit Patient
-          </Button>
-          <a href={`/patientinfo/${this.props.id}`} className="backButton">
-            Back
-          </a>
+          <Link
+            to={`/patientinfo/${this.props.id}`}
+            onClick={this.handleSubmit}          
+            >
+            <button className="backButton">Submit</button>
+          </Link>
+          <Link to="/">
+            <button
+              className="backButton"
+              onClick={() => this.props.deletePatient(this.props.id)}
+            >
+              Delete
+            </button>
+          </Link>
+          <Link to={`/patientinfo/${this.props.id}`}>
+            <button className="backButton">Back</button>
+          </Link>
         </Form>
-        {this.state.submitted && (
-          <Redirect to={`/patientinfo/${this.props.id}`} />
-        )}
       </>
     );
   }
