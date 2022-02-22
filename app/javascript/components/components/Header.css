@@ -11,7 +11,7 @@ nav {
   color: black;
 }
 .nav-link:hover {
-  color: blue;
+  color: rgb(8, 62, 154);
 }
 .logo {
   font-size: 2rem;
@@ -19,5 +19,5 @@ nav {
   margin-left: 2rem;
 }
 .logo > span {
-  color: red;
+  color: rgb(8, 62, 154);
 }
