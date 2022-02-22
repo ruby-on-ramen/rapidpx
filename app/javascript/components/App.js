@@ -64,7 +64,7 @@ export default class App extends Component {
         method: "PATCH",
       });
       if (response.status !== 200 && response.status !== 304) {
-        alert("Something went wrong with your patient upadate.");
+        alert("Something went wrong with your patient update.");
         return;
       }
       this.readPatients();

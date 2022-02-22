@@ -35,7 +35,7 @@ export default class PatientEdit extends Component {
   }
 
   componentDidMount() {
-    this.updateMedications();
+    this.readPatient();
   }
 
   handleChange = (e) => {
@@ -49,11 +49,14 @@ export default class PatientEdit extends Component {
     this.setState({ submitted: true });
   };
 
-  updateMedications = () => {
-    fetch(`/patients/${this.props.id}`)
-      .then((resp) => resp.json())
-      .then((updatePatient) => this.setState({ updatePatient: updatePatient }))
-      .catch((errors) => console.log("Medications errors:", errors));
+  readPatient = async () => {
+    try {
+      const response = await fetch(`/patients/${this.props.id}`)
+      const updatePatient = await response.json()
+      this.setState({ updatePatient })
+    } catch (error) {
+      console.error(error)
+    } 
   };
 
   render() {
