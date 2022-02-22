@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "./About.css";
+
 export default class About extends Component {
   render() {
     return (
@@ -34,7 +36,7 @@ export default class About extends Component {
             <div class="card">
               {/* <img src="/w3images/team2.jpg" alt="Mike" style="width:100%"> */}
               <div class="container">
-                <h2>Christopher</h2>
+                <h2>Christopher Hickey</h2>
                 <p class="title">Project Manager</p>
                 <p>Some text that describes me lorem ipsum ipsum lorem.</p>
                 <p>email2@example.com</p>
@@ -49,7 +51,7 @@ export default class About extends Component {
             <div class="card">
               {/* <img src="/w3images/team2.jpg" alt="Mike" style="width:100%"> */}
               <div class="container">
-                <h2>Kirk</h2>
+                <h2>Kirk Wang</h2>
                 <p class="title">Tech Lead</p>
                 <p>Some text that describes me lorem ipsum ipsum lorem.</p>
                 <p>email3@example.com</p>
@@ -64,7 +66,7 @@ export default class About extends Component {
             <div class="card">
               {/* <img src="/w3images/team3.jpg" alt="John" style="width:100%"> */}
               <div class="container">
-                <h2>Samantha</h2>
+                <h2>Samantha Perez</h2>
                 <p class="title">Design Lead</p>
                 <p>Some text that describes me lorem ipsum ipsum lorem.</p>
                 <p>email4@example.com</p>
