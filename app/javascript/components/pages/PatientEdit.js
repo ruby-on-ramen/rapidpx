@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
-// import "./PatientNew.css";
 
 export default class PatientEdit extends Component {
   constructor(props) {
@@ -20,15 +19,15 @@ export default class PatientEdit extends Component {
 
     this.state = {
       updatePatient: {
-        first_name: first_name ? first_name : "",
-        last_name: last_name ? last_name : "",
-        middle_name: middle_name ? middle_name : "",
-        preferred_name: preferred_name ? preferred_name : "",
-        dob: dob ? dob : "",
-        gender: gender ? gender : "",
-        pronoun: pronoun ? pronoun : "",
-        image: image ? image : "",
-        need_to_know: need_to_know ? need_to_know : "",
+        first_name: first_name ?? "",
+        last_name: last_name ?? "",
+        middle_name: middle_name ?? "",
+        preferred_name: preferred_name ?? "",
+        dob: dob ?? "",
+        gender: gender ?? "",
+        pronoun: pronoun ?? "",
+        image: image ?? "",
+        need_to_know: need_to_know ?? "",
       },
     };
   }

@@ -6,6 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import PatientInfo from "./pages/PatientInfo";
 import PatientNew from "./pages/PatientNew";
@@ -99,7 +100,7 @@ export default class App extends Component {
     return (
       <>
         <Router>
-          {/* <Header {...this.props} /> */}
+          <Header {...this.props} />
           <Switch>
             <Route
               exact
@@ -143,7 +144,7 @@ export default class App extends Component {
               }}
             />
           </Switch>
-          {/* <Footer /> */}
+          <Footer />
         </Router>
       </>
     );

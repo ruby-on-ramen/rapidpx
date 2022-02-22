@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-link {
+  margin: 1rem;
+  text-decoration: none;
+  color: black;
+}
+.nav-link:hover {
+  color: rgb(8, 62, 154);
+}
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 2rem;
+}
+.logo > span {
+  color: rgb(8, 62, 154);
+}
