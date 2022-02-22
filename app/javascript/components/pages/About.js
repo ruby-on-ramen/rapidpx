@@ -15,7 +15,7 @@ export default class About extends Component {
           </p>
         </div>
 
-        <h2 style="text-align:center">Meet Our Team</h2>
+        <h2 style={{ textAlign: "center" }}>Meet Ruby On Ramen</h2>
         <div className="row">
           <div className="column">
             <div className="card">
