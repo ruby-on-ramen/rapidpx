@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import PatientInfo from "./pages/PatientInfo";
 import PatientNew from "./pages/PatientNew";
 import PatientEdit from "./pages/PatientEdit";
+import About from "./pages/About";
 import "./App.css";
 
 export default class App extends Component {
@@ -125,6 +126,7 @@ export default class App extends Component {
                 );
               }}
             />
+            <Route path="/about" component={About} />
           </Switch>
           {/* <Footer /> */}
         </Router>
