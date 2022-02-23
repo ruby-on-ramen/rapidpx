@@ -154,18 +154,18 @@ export default class PatientInfo extends Component {
             })}
         </div>
         <Link to={`/patientedit/${this.props.id}`}>
-          <button className="backButton">Edit Patient</button>
+          <button className="button-style">Edit Patient</button>
         </Link>
         <Link to="/">
           <button
-            className="backButton"
+            className="button-style"
             onClick={() => this.props.deletePatient(this.props.id)}
           >
             Delete
           </button>
         </Link>
         <Link to="/">
-          <button className="backButton">Back</button>
+          <button className="button-style">Back</button>
         </Link>
         <MedicationNew
           createMedication={this.createMedication}

@@ -10,13 +10,13 @@ export default class MedicationEdit extends Component {
 
     this.state = {
       updateMedication: {
-        medication_name: medication_name ? medication_name : "",
-        dose: dose ? dose : "",
-        frequency: frequency ? frequency : "",
-        time: time ? time : "",
-        tx: tx ? tx : "",
-        route: route ? route : "",
-        prescribed_by: prescribed_by ? prescribed_by : "",
+        medication_name: medication_name ?? "",
+        dose: dose ?? "",
+        frequency: frequency ?? "",
+        time: time ?? "",
+        tx: tx ?? "",
+        route: route ?? "",
+        prescribed_by: prescribed_by ?? "",
       },
     };
   }
@@ -108,11 +108,11 @@ export default class MedicationEdit extends Component {
           </FormGroup>
           <br />
         </Form>
-        <button className="backButton" onClick={this.handleSubmit}>
+        <button className="button-style" onClick={this.handleSubmit}>
           Submit
         </button>
         <button
-          className="backButton"
+          className="button-style"
           onClick={() => this.props.deleteMedication(this.props.id)}
         >
           Delete Medication
