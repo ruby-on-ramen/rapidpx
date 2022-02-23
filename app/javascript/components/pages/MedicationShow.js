@@ -6,13 +6,6 @@ export default class MedicationShow extends Component {
       this.props.medication;
     return (
       <>
-        {/* <h3>Medication Show</h3>
-        <a
-          href={`https://pubchem.ncbi.nlm.nih.gov/compound/${medication_name}`}
-          target="_blank"
-        >
-          {medication_name}
-        </a> */}
         <ul>
           <li>Time: {time}</li>
           <li>Dose: {dose}</li>

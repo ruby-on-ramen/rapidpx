@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
-import "./PatientNew.css";
-
 export default class PatientNew extends Component {
   constructor(props) {
     super(props);
@@ -131,10 +129,10 @@ export default class PatientNew extends Component {
               value={need_to_know}
             />
           </FormGroup>
-          <Button onClick={this.handleSubmit} className="backButton">
+          <Button onClick={this.handleSubmit} className="button-style">
             Add Patient
           </Button>
-          <a href="/" className="backButton">
+          <a href="/" className="button-style">
             Back
           </a>
         </Form>

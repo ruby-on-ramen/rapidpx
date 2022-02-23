@@ -1,23 +1,33 @@
-import React from "react";
+import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
-import "./Header.css";
-const Header = () => {
-  return (
-    <nav>
-      <div className="logo">RapidP<span>x</span></div>
-      <div>
-        <NavLink to="/aboutus" className="nav-link">
-          About Us
-        </NavLink>
-        <NavLink to="/contactus" className="nav-link">
-          Contact Us
-        </NavLink>
-        <NavLink to="/signout" className="nav-link">
-          Sign Out 
-        </NavLink>
-    </div>
-    </nav>
-  );
-};
+import "../../../assets/stylesheets/Header.css";
 
-export default Header;
+export default class Header extends Component {
+  render() {
+    const {
+      logged_in,
+      current_user,
+      new_user_route,
+      sign_in_route,
+      sign_out_route,
+    } = this.props;
+    return (
+      <nav>
+        <div className="logo">
+          RapidP<span>x</span>
+        </div>
+        <div>
+          <NavLink to="/about" className="nav-link">
+            About Us
+          </NavLink>
+          <NavLink to="/contact" className="nav-link">
+            Contact Us
+          </NavLink>
+          <a href={sign_out_route} className="nav-link">
+            Sign Out
+          </a>
+        </div>
+      </nav>
+    );
+  }
+}

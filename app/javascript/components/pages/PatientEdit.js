@@ -167,18 +167,18 @@ export default class PatientEdit extends Component {
             to={`/patientinfo/${this.props.id}`}
             onClick={this.handleSubmit}
           >
-            <button className="backButton">Submit</button>
+            <button className="button-style">Submit</button>
           </Link>
           <Link to="/">
             <button
-              className="backButton"
+              className="button-style"
               onClick={() => this.props.deletePatient(this.props.id)}
             >
               Delete
             </button>
           </Link>
           <Link to={`/patientinfo/${this.props.id}`}>
-            <button className="backButton">Back</button>
+            <button className="button-style">Back</button>
           </Link>
         </Form>
       </>

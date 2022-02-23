@@ -1,8 +1,10 @@
-<section>
+<section class="devise">
   <div class="log-in-wrapper">
     <div class="log-in">
       <h2 class="name">RapidPx</h2>
+
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -28,6 +30,7 @@
       <div class="devise-links">
         <%= render "devise/shared/links" %> 
       </div>
+
     </div>
   </div>
 </section>

@@ -21,7 +21,7 @@ export default class Home extends Component {
               </NavLink>
             );
           })}
-        <a href="/patientnew" className="backButton">
+        <a href="/patientnew" className="button-style">
           Add A Patient
         </a>
       </>

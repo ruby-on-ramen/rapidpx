@@ -33,7 +33,6 @@ export default class MedicationNew extends Component {
   render() {
     const { medication_name, dose, frequency, time, prescribed_by, tx, route } =
       this.state.newMedication;
-    console.log(this.state.newMedication);
     return (
       <>
         <h3>Add A Medication</h3>
@@ -101,7 +100,7 @@ export default class MedicationNew extends Component {
               value={route}
             />
           </FormGroup>
-          <Button onClick={this.handleSubmit} className="backButton">
+          <Button onClick={this.handleSubmit} className="button-style">
             Add Medication
           </Button>
         </Form>
@@ -109,7 +108,7 @@ export default class MedicationNew extends Component {
           <Redirect to={`/patientinfo/${this.props.id}`} />
         )}
         <Link to={`/patientinfo/${this.props.id}`}>
-          <button className="backButton">Back</button>
+          <button className="button-style">Back</button>
         </Link>
       </>
     );
