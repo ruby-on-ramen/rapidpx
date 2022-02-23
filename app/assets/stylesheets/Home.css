@@ -1,0 +1,28 @@
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.patient-card {
+  display: flex;
+  margin: 3rem;
+  width: 400px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.patient-card p {
+  margin: 1rem;
+  text-align: right;
+  padding: 0;
+}
+
+.patient-card a {
+  text-decoration: none;
+}
+
+.patient-image {
+  text-align: center;
+  width: 400px;
+}

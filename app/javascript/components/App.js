@@ -12,6 +12,8 @@ import PatientInfo from "./pages/PatientInfo";
 import PatientNew from "./pages/PatientNew";
 import PatientEdit from "./pages/PatientEdit";
 import About from "./pages/About";
+import "../../assets/stylesheets/App.css";
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -96,7 +98,7 @@ export default class App extends Component {
       sign_out_route,
     } = this.props;
     return (
-      <>
+      <div className="container">
         <Router>
           <Header {...this.props} />
           <Switch>
@@ -145,7 +147,7 @@ export default class App extends Component {
           </Switch>
           <Footer />
         </Router>
-      </>
+      </div>
     );
   }
 }

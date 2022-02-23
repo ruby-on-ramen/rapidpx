@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import MedicationEdit from "./MedicationEdit";
+import MedicationList from "./MedicationList";
 import MedicationNew from "./MedicationNew";
 import MedicationShow from "./MedicationShow";
+import Modal from "./Modal";
 
 export default class PatientInfo extends Component {
   constructor(props) {
@@ -20,12 +22,17 @@ export default class PatientInfo extends Component {
         need_to_know: "",
         medications: null,
       },
+      modalOpen: false,
     };
   }
 
   componentDidMount() {
     this.readMedications();
   }
+
+  handleModalOpen = () => {
+    this.setState({ modalOpen: !this.state.modalOpen });
+  };
 
   readMedications = async () => {
     try {
@@ -123,8 +130,12 @@ export default class PatientInfo extends Component {
             <li>Pronoun: {pronoun}</li>
             <li>Need To Know: {need_to_know}</li>
           </ul>
-          <h3>Medications</h3>
-          {medications &&
+          <MedicationList
+            medications={medications}
+            handleModalOpen={this.handleModalOpen}
+            modalOpen={this.state.modalOpen}
+          />
+          {/* {medications &&
             medications.map((medication, idx) => {
               return (
                 <div key={idx}>
@@ -134,26 +145,26 @@ export default class PatientInfo extends Component {
                   >
                     {medication.medication_name}
                   </a>
-                  <button>Edit</button>
-                  {
-                    <MedicationShow
-                      id={medication.id}
-                      medication={medication}
-                    />
-                  }
-                  {
+                  <button onClick={this.handleModalOpen}>Edit</button>
+
+                  <MedicationShow id={medication.id} medication={medication} />
+
+                  <Modal
+                    handleClose={this.handleModalOpen}
+                    open={this.state.modalOpen}
+                  >
                     <MedicationEdit
                       id={medication.id}
                       medication={medication}
                       updateMedication={this.updateMedication}
                       deleteMedication={this.deleteMedication}
                     />
-                  }
+                  </Modal>
                 </div>
               );
-            })}
+            })} */}
         </div>
-        <Link to={`/patientedit/${this.props.id}`}>
+        {/* <Link to={`/patientedit/${this.props.id}`}>
           <button className="button-style">Edit Patient</button>
         </Link>
         <Link to="/">
@@ -170,7 +181,7 @@ export default class PatientInfo extends Component {
         <MedicationNew
           createMedication={this.createMedication}
           id={this.props.id}
-        />
+        /> */}
       </>
     );
   }

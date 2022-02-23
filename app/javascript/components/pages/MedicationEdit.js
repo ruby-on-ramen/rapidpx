@@ -36,7 +36,7 @@ export default class MedicationEdit extends Component {
       this.state.updateMedication;
     return (
       <>
-        <Form>
+        <div>
           <FormGroup>
             <Label>Medication Name</Label>
             <Input
@@ -107,7 +107,7 @@ export default class MedicationEdit extends Component {
             />
           </FormGroup>
           <br />
-        </Form>
+        </div>
         <button className="button-style" onClick={this.handleSubmit}>
           Submit
         </button>
