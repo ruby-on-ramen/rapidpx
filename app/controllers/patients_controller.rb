@@ -2,7 +2,7 @@
 
 class PatientsController < ApplicationController
   def index
-    patients = Patient.all
+    patients = Patient.order(:last_name)
     render json: patients
   end
 
