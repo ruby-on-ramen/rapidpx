@@ -27,7 +27,18 @@ export default class MedicationNew extends Component {
 
   handleSubmit = () => {
     this.props.createMedication(this.state.newMedication);
-    this.setState({ submitted: true });
+    this.setState({
+      newMedication: {
+        medication_name: "",
+        dose: "",
+        frequency: "",
+        time: "",
+        prescribed_by: "",
+        tx: "",
+        route: "",
+      },
+      submitted: true,
+    });
   };
 
   render() {
