@@ -88,6 +88,12 @@ export default class MedicationList extends Component {
     return (
       <div>
         <h3>Medications</h3>
+        <button onClick={this.handleAddOpen} className="button-style">
+          Add Medication
+        </button>
+        <br />
+        <br />
+        <br />
         {this.props.medications &&
           this.props.medications.map((medication, idx) => {
             return (
@@ -115,9 +121,6 @@ export default class MedicationList extends Component {
               </div>
             );
           })}
-        <button onClick={this.handleAddOpen} className="button-style">
-          Add Medication
-        </button>
 
         <Modal
           handleClose={this.handleEditOpen}
