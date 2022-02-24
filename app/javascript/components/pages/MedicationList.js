@@ -1,12 +1,92 @@
 import React, { Component } from "react";
+import { ContextExclusionPlugin } from "webpack";
+import MedicationEdit from "./MedicationEdit";
+import MedicationNew from "./MedicationNew";
+import MedicationShow from "./MedicationShow";
+import Modal from "./Modal";
 
 export default class MedicationList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      patient: {},
+      modalOpen: false,
+    };
+  }
+
+  handleModalOpen = () => {
+    console.log("here");
+    this.setState({ modalOpen: !this.state.modalOpen });
+  };
+
+  createMedication = async (newMedication) => {
+    try {
+      const response = await fetch(
+        `/patients/${this.props.patientId}/medications`,
+        {
+          body: JSON.stringify(newMedication),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+        }
+      );
+      if (response.status !== 200 && response.status !== 304) {
+        alert("There is something wrong with your patient submssion.");
+        return;
+      }
+      this.props.fetchPatientById(this.props.patientId);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  updateMedication = async (updateMedication, id) => {
+    try {
+      const response = await fetch(
+        `/patients/${this.props.patientId}/medications/${id}`,
+        {
+          body: JSON.stringify(updateMedication),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "PATCH",
+        }
+      );
+      if (response.status !== 200 && response.status !== 304) {
+        alert("Something went wrong with your medication update.");
+        return;
+      }
+      this.props.fetchPatientById(this.props.patientId);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  deleteMedication = async (id) => {
+    try {
+      const response = await fetch(
+        `/patients/${this.props.patientId}/medications/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (response.status !== 200 && response.status !== 304) {
+        alert("Something went wrong with your medication delete.");
+        return;
+      }
+      this.props.fetchPatientById(this.props.patientId);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   render() {
     return (
       <div>
         <h3>Medications</h3>
-        {medications &&
-          medications.map((medication, idx) => {
+        {/* {this.props.medications &&
+          this.props.medications.map((medication, idx) => {
             return (
               <div key={idx}>
                 <a
@@ -15,13 +95,13 @@ export default class MedicationList extends Component {
                 >
                   {medication.medication_name}
                 </a>
-                <button onClick={this.props.handleModalOpen}>Edit</button>
+                <button onClick={this.handleModalOpen}>Edit</button>
 
                 <MedicationShow id={medication.id} medication={medication} />
 
                 <Modal
-                  handleClose={this.props.handleModalOpen}
-                  open={this.props.modalOpen}
+                  handleClose={this.handleModalOpen}
+                  open={this.state.modalOpen}
                 >
                   <MedicationEdit
                     id={medication.id}
@@ -32,7 +112,7 @@ export default class MedicationList extends Component {
                 </Modal>
               </div>
             );
-          })}
+          })} */}
       </div>
     );
   }

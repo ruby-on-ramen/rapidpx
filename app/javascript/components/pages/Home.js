@@ -10,9 +10,9 @@ export default class Home extends Component {
         <h1>Patients</h1>
         <div className="flex">
           {patientsArray &&
-            patientsArray.map((patient) => {
+            patientsArray.map((patient, idx) => {
               return (
-                <div className="patient-card">
+                <div className="patient-card" key={idx}>
                   <NavLink to={`/patientinfo/${patient.id}`} key={patient.id}>
                     <div className="patient-image">
                       <img

@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import MedicationEdit from "./MedicationEdit";
 import MedicationList from "./MedicationList";
-import MedicationNew from "./MedicationNew";
-import MedicationShow from "./MedicationShow";
-import Modal from "./Modal";
 
 const getAge = (dateString) => {
   const today = new Date();
@@ -37,77 +33,14 @@ export default class PatientInfo extends Component {
   }
 
   componentDidMount() {
-    this.readMedications();
+    this.fetchPatientById(this.props.id);
   }
 
-  handleModalOpen = () => {
-    this.setState({ modalOpen: !this.state.modalOpen });
-  };
-
-  readMedications = async () => {
+  fetchPatientById = async (id) => {
     try {
-      const response = await fetch(`/patients/${this.props.id}`);
+      const response = await fetch(`/patients/${id}`);
       const patient = await response.json();
       this.setState({ patient });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  createMedication = async (newMedication) => {
-    try {
-      const response = await fetch(`/patients/${this.props.id}/medications`, {
-        body: JSON.stringify(newMedication),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      });
-      if (response.status !== 200 && response.status !== 304) {
-        alert("There is something wrong with your patient submssion.");
-        return;
-      }
-      this.readMedications();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  updateMedication = async (updateMedication, id) => {
-    try {
-      const response = await fetch(
-        `/patients/${this.props.id}/medications/${id}`,
-        {
-          body: JSON.stringify(updateMedication),
-          headers: {
-            "Content-Type": "application/json",
-          },
-          method: "PATCH",
-        }
-      );
-      if (response.status !== 200 && response.status !== 304) {
-        alert("Something went wrong with your medication update.");
-        return;
-      }
-      this.readMedications();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  deleteMedication = async (id) => {
-    try {
-      const response = await fetch(
-        `/patients/${this.props.id}/medications/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
-      if (response.status !== 200 && response.status !== 304) {
-        alert("Something went wrong with your medication delete.");
-        return;
-      }
-      this.readMedications();
     } catch (error) {
       console.error(error);
     }
@@ -144,8 +77,9 @@ export default class PatientInfo extends Component {
           </ul>
           <MedicationList
             medications={medications}
-            handleModalOpen={this.handleModalOpen}
             modalOpen={this.state.modalOpen}
+            patientId={this.props.id}
+            fetchPatientById={this.fetchPatientById}
           />
           {/* {medications &&
             medications.map((medication, idx) => {
