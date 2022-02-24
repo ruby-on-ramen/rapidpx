@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import MedicationList from "./MedicationList";
+import Modal from "./Modal";
+import PatientEdit from "./PatientEdit";
 
 const getAge = (dateString) => {
   const today = new Date();
@@ -46,6 +48,10 @@ export default class PatientInfo extends Component {
     }
   };
 
+  handleModalOpen = () => {
+    this.setState({ modalOpen: !this.state.modalOpen });
+  };
+
   render() {
     const {
       first_name,
@@ -67,6 +73,19 @@ export default class PatientInfo extends Component {
           <h2>
             {first_name} {middle_name} {last_name}
           </h2>
+          {/* <Link to={`/patientedit/${this.props.id}`}> */}
+          <button onClick={this.handleModalOpen} className="button-style">
+            Edit Patient
+          </button>
+          {/* </Link> */}
+          <Modal handleClose={this.handleModalOpen} open={this.state.modalOpen}>
+            <PatientEdit
+              id={this.props.id}
+              updatePatient={this.props.updatePatient}
+              handleModalOpen={this.handleModalOpen}
+              fetchPatientById={this.fetchPatientById}
+            />
+          </Modal>
           <ul>
             <li>Preferred name: {preferred_name}</li>
             <li>DOB: {dob}</li>
@@ -78,28 +97,21 @@ export default class PatientInfo extends Component {
           <MedicationList
             medications={medications}
             modalOpen={this.state.modalOpen}
-            patientId={this.props.id}
+            id={this.props.id}
             fetchPatientById={this.fetchPatientById}
           />
         </div>
-        {/* <Link to={`/patientedit/${this.props.id}`}>
-          <button className="button-style">Edit Patient</button>
-        </Link>
         <Link to="/">
           <button
             className="button-style"
             onClick={() => this.props.deletePatient(this.props.id)}
           >
-            Delete
+            Delete Patient
           </button>
         </Link>
         <Link to="/">
           <button className="button-style">Back</button>
         </Link>
-        <MedicationNew
-          createMedication={this.createMedication}
-          id={this.props.id}
-        /> */}
       </>
     );
   }

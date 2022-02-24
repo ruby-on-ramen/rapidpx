@@ -8,31 +8,37 @@ export default class MedicationList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOpen: false,
+      editingMedication: null,
+      handleEditOpen: false,
+      handleAddOpen: false,
     };
   }
 
-  handleModalOpen = () => {
-    this.setState({ modalOpen: !this.state.modalOpen });
+  handleEditOpen = (medication) => {
+    this.setState({
+      handleEditOpen: !this.state.handleEditOpen,
+      editingMedication: medication ?? null,
+    });
+  };
+
+  handleAddOpen = () => {
+    this.setState({ handleAddOpen: !this.state.handleAddOpen });
   };
 
   createMedication = async (newMedication) => {
     try {
-      const response = await fetch(
-        `/patients/${this.props.patientId}/medications`,
-        {
-          body: JSON.stringify(newMedication),
-          headers: {
-            "Content-Type": "application/json",
-          },
-          method: "POST",
-        }
-      );
+      const response = await fetch(`/patients/${this.props.id}/medications`, {
+        body: JSON.stringify(newMedication),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
       if (response.status !== 200 && response.status !== 304) {
         alert("There is something wrong with your patient submssion.");
         return;
       }
-      this.props.fetchPatientById(this.props.patientId);
+      this.props.fetchPatientById(this.props.id);
     } catch (error) {
       console.error(error);
     }
@@ -41,7 +47,7 @@ export default class MedicationList extends Component {
   updateMedication = async (updateMedication, id) => {
     try {
       const response = await fetch(
-        `/patients/${this.props.patientId}/medications/${id}`,
+        `/patients/${this.props.id}/medications/${id}`,
         {
           body: JSON.stringify(updateMedication),
           headers: {
@@ -54,7 +60,7 @@ export default class MedicationList extends Component {
         alert("Something went wrong with your medication update.");
         return;
       }
-      this.props.fetchPatientById(this.props.patientId);
+      this.props.fetchPatientById(this.props.id);
     } catch (error) {
       console.error(error);
     }
@@ -63,7 +69,7 @@ export default class MedicationList extends Component {
   deleteMedication = async (id) => {
     try {
       const response = await fetch(
-        `/patients/${this.props.patientId}/medications/${id}`,
+        `/patients/${this.props.id}/medications/${id}`,
         {
           method: "DELETE",
         }
@@ -72,7 +78,7 @@ export default class MedicationList extends Component {
         alert("Something went wrong with your medication delete.");
         return;
       }
-      this.props.fetchPatientById(this.props.patientId);
+      this.props.fetchPatientById(this.props.id);
     } catch (error) {
       console.error(error);
     }
@@ -92,32 +98,46 @@ export default class MedicationList extends Component {
                 >
                   {medication.medication_name}
                 </a>
-                <button onClick={this.handleModalOpen} className="button-style">
+                <button
+                  className="button-style"
+                  onClick={() => this.handleEditOpen(medication)}
+                >
                   Edit
+                </button>
+                <button
+                  onClick={() => this.deleteMedication(medication.id)}
+                  className="button-style"
+                >
+                  Delete
                 </button>
 
                 <MedicationShow id={medication.id} medication={medication} />
-
-                <Modal
-                  handleClose={this.handleModalOpen}
-                  open={this.state.modalOpen}
-                >
-                  <MedicationEdit
-                    id={medication.id}
-                    medication={medication}
-                    updateMedication={this.updateMedication}
-                    deleteMedication={this.deleteMedication}
-                  />
-                </Modal>
-                {/* <MedicationEdit
-                  id={medication.id}
-                  medication={medication}
-                  updateMedication={this.updateMedication}
-                  deleteMedication={this.deleteMedication}
-                /> */}
               </div>
             );
           })}
+        <button onClick={this.handleAddOpen} className="button-style">
+          Add Medication
+        </button>
+
+        <Modal
+          handleClose={this.handleEditOpen}
+          open={this.state.handleEditOpen}
+        >
+          <MedicationEdit
+            medication={this.state.editingMedication}
+            updateMedication={this.updateMedication}
+            deleteMedication={this.deleteMedication}
+            handleClose={this.handleEditOpen}
+          />
+        </Modal>
+
+        <Modal handleClose={this.handleAddOpen} open={this.state.handleAddOpen}>
+          <MedicationNew
+            createMedication={this.createMedication}
+            handleClose={this.handleAddOpen}
+            id={this.props.id}
+          />
+        </Modal>
       </div>
     );
   }

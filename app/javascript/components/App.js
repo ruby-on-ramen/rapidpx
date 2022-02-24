@@ -105,7 +105,12 @@ export default class App extends Component {
             <Route
               exact
               path="/"
-              render={() => <Home patientsArray={this.state.patientsArray} />}
+              render={() => (
+                <Home
+                  patientsArray={this.state.patientsArray}
+                  updatePatient={this.props.updatePatient}
+                />
+              )}
             />
             <Route
               path="/patientinfo/:id"
@@ -119,6 +124,7 @@ export default class App extends Component {
                     patientInfo={patientInfo}
                     id={id}
                     deletePatient={this.deletePatient}
+                    updatePatient={this.updatePatient}
                   />
                 );
               }}

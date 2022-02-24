@@ -27,6 +27,7 @@ export default class MedicationNew extends Component {
 
   handleSubmit = () => {
     this.props.createMedication(this.state.newMedication);
+    this.props.handleClose();
     this.setState({
       newMedication: {
         medication_name: "",
@@ -118,9 +119,6 @@ export default class MedicationNew extends Component {
         {this.state.submitted && (
           <Redirect to={`/patientinfo/${this.props.id}`} />
         )}
-        <Link to={`/patientinfo/${this.props.id}`}>
-          <button className="button-style">Back</button>
-        </Link>
       </>
     );
   }
