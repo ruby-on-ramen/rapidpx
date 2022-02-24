@@ -34,6 +34,7 @@ export default class MedicationEdit extends Component {
   render() {
     const { medication_name, dose, frequency, time, route, tx, prescribed_by } =
       this.state.updateMedication;
+    console.log("HERE", this.props.id);
     return (
       <>
         <div>

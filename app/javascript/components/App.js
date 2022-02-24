@@ -107,7 +107,7 @@ export default class App extends Component {
               path="/"
               render={() => <Home patientsArray={this.state.patientsArray} />}
             />
-            {/* <Route
+            <Route
               path="/patientinfo/:id"
               render={(props) => {
                 const id = +props.match.params.id;
@@ -122,7 +122,7 @@ export default class App extends Component {
                   />
                 );
               }}
-            /> */}
+            />
             <Route
               path="/patientnew"
               render={() => <PatientNew createPatient={this.createPatient} />}

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ContextExclusionPlugin } from "webpack";
 import MedicationEdit from "./MedicationEdit";
 import MedicationNew from "./MedicationNew";
 import MedicationShow from "./MedicationShow";
@@ -9,13 +8,11 @@ export default class MedicationList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      patient: {},
       modalOpen: false,
     };
   }
 
   handleModalOpen = () => {
-    console.log("here");
     this.setState({ modalOpen: !this.state.modalOpen });
   };
 
@@ -85,7 +82,7 @@ export default class MedicationList extends Component {
     return (
       <div>
         <h3>Medications</h3>
-        {/* {this.props.medications &&
+        {this.props.medications &&
           this.props.medications.map((medication, idx) => {
             return (
               <div key={idx}>
@@ -95,7 +92,9 @@ export default class MedicationList extends Component {
                 >
                   {medication.medication_name}
                 </a>
-                <button onClick={this.handleModalOpen}>Edit</button>
+                <button onClick={this.handleModalOpen} className="button-style">
+                  Edit
+                </button>
 
                 <MedicationShow id={medication.id} medication={medication} />
 
@@ -110,9 +109,15 @@ export default class MedicationList extends Component {
                     deleteMedication={this.deleteMedication}
                   />
                 </Modal>
+                {/* <MedicationEdit
+                  id={medication.id}
+                  medication={medication}
+                  updateMedication={this.updateMedication}
+                  deleteMedication={this.deleteMedication}
+                /> */}
               </div>
             );
-          })} */}
+          })}
       </div>
     );
   }

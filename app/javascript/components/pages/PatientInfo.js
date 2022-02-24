@@ -81,34 +81,6 @@ export default class PatientInfo extends Component {
             patientId={this.props.id}
             fetchPatientById={this.fetchPatientById}
           />
-          {/* {medications &&
-            medications.map((medication, idx) => {
-              return (
-                <div key={idx}>
-                  <a
-                    href={`https://pubchem.ncbi.nlm.nih.gov/compound/${medication.medication_name}`}
-                    target="_blank"
-                  >
-                    {medication.medication_name}
-                  </a>
-                  <button onClick={this.handleModalOpen}>Edit</button>
-
-                  <MedicationShow id={medication.id} medication={medication} />
-
-                  <Modal
-                    handleClose={this.handleModalOpen}
-                    open={this.state.modalOpen}
-                  >
-                    <MedicationEdit
-                      id={medication.id}
-                      medication={medication}
-                      updateMedication={this.updateMedication}
-                      deleteMedication={this.deleteMedication}
-                    />
-                  </Modal>
-                </div>
-              );
-            })} */}
         </div>
         {/* <Link to={`/patientedit/${this.props.id}`}>
           <button className="button-style">Edit Patient</button>
