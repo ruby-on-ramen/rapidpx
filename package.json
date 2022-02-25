@@ -40,6 +40,8 @@
     "testEnvironment": "jsdom"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "test:watch": "jest --watchAll"
   }
 }
