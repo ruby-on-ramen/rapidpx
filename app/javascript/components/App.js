@@ -12,7 +12,6 @@ import PatientInfo from "./pages/PatientInfo";
 import PatientNew from "./pages/PatientNew";
 import PatientEdit from "./pages/PatientEdit";
 import About from "./pages/About";
-import "../../assets/stylesheets/App.css";
 
 export default class App extends Component {
   constructor(props) {
