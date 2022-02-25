@@ -13,7 +13,6 @@ import PatientNew from "./pages/PatientNew";
 import PatientEdit from "./pages/PatientEdit";
 import About from "./pages/About";
 
-
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -109,6 +108,7 @@ export default class App extends Component {
                 <Home
                   patientsArray={this.state.patientsArray}
                   updatePatient={this.props.updatePatient}
+                  createPatient={this.createPatient}
                 />
               )}
             />
@@ -128,10 +128,6 @@ export default class App extends Component {
                   />
                 );
               }}
-            />
-            <Route
-              path="/patientnew"
-              render={() => <PatientNew createPatient={this.createPatient} />}
             />
             <Route
               path="/patientedit/:id"

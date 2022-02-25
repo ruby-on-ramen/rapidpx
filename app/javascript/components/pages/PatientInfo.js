@@ -4,6 +4,7 @@ import MedicationList from "./MedicationList";
 import PatientEdit from "./PatientEdit";
 import Modal from "./Modal";
 import { Button } from "reactstrap";
+import edit from "../../../assets/images/edit.svg";
 
 export default class PatientInfo extends Component {
   constructor(props) {
@@ -74,25 +75,19 @@ export default class PatientInfo extends Component {
           <img src={image} alt={first_name} />
           <h2>
             {first_name} {middle_name} {last_name}
+            <input
+              type="image"
+              className="edit-button"
+              src={edit}
+              onClick={this.handleModalOpen}
+            />
           </h2>
 
-          {/* <Modal handleClose={this.handleModalOpen} open={this.state.modalOpen}>
-            <PatientEdit
-              id={this.props.id}
-              updatePatient={this.props.updatePatient}
-              handleModalOpen={this.handleModalOpen}
-              fetchPatientById={this.fetchPatientById}
-            />
-          </Modal> */}
-
           <div>
-            <Button color="primary" onClick={this.handleModalOpen}>
-              Edit
-            </Button>
             <Modal
               isOpen={this.state.modalOpen}
               toggle={this.handleModalOpen}
-              title="Patient Title"
+              title="Edit Patient"
             >
               <PatientEdit
                 id={this.props.id}
@@ -119,15 +114,15 @@ export default class PatientInfo extends Component {
           />
         </div>
         <Link to="/">
-          <button
-            className="button-style"
+          <Button color="primary">Back</Button>
+        </Link>
+        <Link to="/">
+          <Button
+            color="danger"
             onClick={() => this.props.deletePatient(this.props.id)}
           >
             Delete Patient
-          </button>
-        </Link>
-        <Link to="/">
-          <button className="button-style">Back</button>
+          </Button>
         </Link>
       </>
     );

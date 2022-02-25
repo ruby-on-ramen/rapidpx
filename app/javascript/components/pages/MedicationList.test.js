@@ -23,15 +23,12 @@ describe("When MedicationList renders", () => {
   });
   it("has an add medication button", () => {
     const medicationListWrapper = shallow(<MedicationList medication={[]} />);
-    const modal = medicationListWrapper.find("button").text()
+    const modal = medicationListWrapper.find("button").text();
     expect(modal).toContain("Add Medication");
   });
   it("has a modal that contains MedicationNew", () => {
     const medicationListWrapper = shallow(<MedicationList medication={[]} />);
-    const modal = medicationListWrapper.find("MedicationEdit")
-    expect(modal.length).toEqual(1)
-    
-})
-
-
-})
+    const modal = medicationListWrapper.find("MedicationEdit");
+    expect(modal.length).toEqual(1);
+  });
+});

@@ -1,7 +1,21 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { Button } from "reactstrap";
+import PatientNew from "./PatientNew";
+import Modal from "./Modal";
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalOpen: false,
+    };
+  }
+
+  handleModalOpen = () => {
+    this.setState({ modalOpen: !this.state.modalOpen });
+  };
+
   render() {
     const { patientsArray } = this.props;
     return (
@@ -28,9 +42,19 @@ export default class Home extends Component {
               );
             })}
         </div>
-        <a href="/patientnew" className="button-style">
-          Add A Patient
-        </a>
+        <Button color="primary" onClick={this.handleModalOpen}>
+          Add New Patient
+        </Button>
+        <Modal
+          isOpen={this.state.modalOpen}
+          toggle={this.handleModalOpen}
+          title="Add New Patient"
+        >
+          <PatientNew
+            createPatient={this.props.createPatient}
+            handleModalOpen={this.handleModalOpen}
+          />
+        </Modal>
       </div>
     );
   }

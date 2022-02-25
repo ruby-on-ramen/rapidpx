@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MedicationEdit from "./MedicationEdit";
 import MedicationNew from "./MedicationNew";
 import MedicationShow from "./MedicationShow";
+import { Button } from "reactstrap";
 import Modal from "./Modal";
 
 export default class MedicationList extends Component {
@@ -88,9 +89,9 @@ export default class MedicationList extends Component {
     return (
       <div>
         <h3>Medications</h3>
-        <button onClick={this.handleAddOpen} className="button-style">
+        <Button color="primary" onClick={this.handleAddOpen}>
           Add Medication
-        </button>
+        </Button>
         <br />
         <br />
         <br />
@@ -104,18 +105,18 @@ export default class MedicationList extends Component {
                 >
                   {medication.medication_name}
                 </a>
-                <button
-                  className="button-style"
+                <Button
+                  color="primary"
                   onClick={() => this.handleEditOpen(medication)}
                 >
                   Edit
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={() => this.deleteMedication(medication.id)}
-                  className="button-style"
+                  color="danger"
                 >
                   Delete
-                </button>
+                </Button>
 
                 <MedicationShow id={medication.id} medication={medication} />
               </div>
@@ -125,6 +126,7 @@ export default class MedicationList extends Component {
         <Modal
           toggle={this.handleEditOpen}
           isOpen={this.state.isEditOpen}
+          title="Edit Medication"
         >
           <MedicationEdit
             medication={this.state.editingMedication}
@@ -134,7 +136,11 @@ export default class MedicationList extends Component {
           />
         </Modal>
 
-        <Modal toggle={this.handleAddOpen} isOpen={this.state.isAddOpen}>
+        <Modal
+          toggle={this.handleAddOpen}
+          isOpen={this.state.isAddOpen}
+          title="Add Medication"
+        >
           <MedicationNew
             createMedication={this.createMedication}
             handleClose={this.handleAddOpen}

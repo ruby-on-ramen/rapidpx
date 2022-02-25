@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { Form, FormGroup, Input, Label, Button } from "reactstrap";
+import { Form, FormGroup, Input, Label, Button, ModalFooter } from "reactstrap";
 export default class PatientNew extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +29,7 @@ export default class PatientNew extends Component {
   handleSubmit = () => {
     this.props.createPatient(this.state.newPatient);
     this.setState({ submitted: true });
+    this.props.handleModalOpen();
   };
 
   render() {
@@ -46,7 +47,6 @@ export default class PatientNew extends Component {
     } = this.state.newPatient;
     return (
       <>
-        <h3>Add a New Patient</h3>
         <Form>
           <FormGroup>
             <Label>First Name</Label>
@@ -112,7 +112,7 @@ export default class PatientNew extends Component {
             />
           </FormGroup>
           <FormGroup>
-            <Label>image</Label>
+            <Label>Image</Label>
             <Input
               type="text"
               name="image"
@@ -129,12 +129,11 @@ export default class PatientNew extends Component {
               value={need_to_know}
             />
           </FormGroup>
-          <Button onClick={this.handleSubmit} className="button-style">
-            Add Patient
-          </Button>
-          <a href="/" className="button-style">
-            Back
-          </a>
+          <ModalFooter>
+            <Button color="primary" onClick={this.handleSubmit}>
+              Add Patient
+            </Button>
+          </ModalFooter>
         </Form>
         {this.state.submitted && <Redirect to="/" />}
       </>

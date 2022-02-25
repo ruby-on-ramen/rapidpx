@@ -74,7 +74,6 @@ export default class PatientEdit extends Component {
     } = this.state.updatePatient;
     return (
       <>
-        <h3>Edit A Patient's Information</h3>
         <Form>
           <FormGroup>
             <Label>First Name</Label>
