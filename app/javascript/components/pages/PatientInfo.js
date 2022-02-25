@@ -5,16 +5,6 @@ import PatientEdit from "./PatientEdit";
 import Modal from "./Modal";
 import { Button } from "reactstrap";
 
-const getAge = (dateString) => {
-  const today = new Date();
-  const birthDate = new Date(dateString);
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-  return age;
-};
 export default class PatientInfo extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +24,17 @@ export default class PatientInfo extends Component {
       modalOpen: false,
     };
   }
+
+  getAge = (dateString) => {
+    const today = new Date();
+    const birthDate = new Date(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
 
   componentDidMount() {
     this.fetchPatientById(this.props.id);
@@ -105,7 +106,7 @@ export default class PatientInfo extends Component {
           <ul>
             <li>Preferred name: {preferred_name}</li>
             <li>DOB: {dob}</li>
-            <li>Age: {getAge(dob)}</li>
+            <li>Age: {this.getAge(dob)}</li>
             <li>Gender: {gender}</li>
             <li>Pronoun: {pronoun}</li>
             <li>Need To Know: {need_to_know}</li>
