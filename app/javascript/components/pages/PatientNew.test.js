@@ -20,4 +20,12 @@ describe("When PatientNew renders", () => {
     const input = patientNew.find("Input");
     expect(input.length).toEqual(9);
   });
+  it("handles input change", () => {
+    const patientNewWrapper = shallow(<PatientNew />);
+    const input = patientNewWrapper.find({ name: "first_name" });
+    const expected = "Hello";
+    input.simulate("change", { target: { value: expected, name: "first_name" } });
+    const actual = patientNewWrapper.state().newPatient.first_name;
+    expect(actual).toEqual(expected);
+  });
 });

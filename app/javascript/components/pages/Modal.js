@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { getConstructor } from "react_ujs";
 
 export default class Modal extends Component {
   render() {
