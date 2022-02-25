@@ -12,6 +12,7 @@ import PatientInfo from "./pages/PatientInfo";
 import PatientNew from "./pages/PatientNew";
 import PatientEdit from "./pages/PatientEdit";
 import About from "./pages/About";
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -96,14 +97,19 @@ export default class App extends Component {
       sign_out_route,
     } = this.props;
     return (
-      <>
+      <div className="container">
         <Router>
           <Header {...this.props} />
           <Switch>
             <Route
               exact
               path="/"
-              render={() => <Home patientsArray={this.state.patientsArray} />}
+              render={() => (
+                <Home
+                  patientsArray={this.state.patientsArray}
+                  updatePatient={this.props.updatePatient}
+                />
+              )}
             />
             <Route
               path="/patientinfo/:id"
@@ -117,6 +123,7 @@ export default class App extends Component {
                     patientInfo={patientInfo}
                     id={id}
                     deletePatient={this.deletePatient}
+                    updatePatient={this.updatePatient}
                   />
                 );
               }}
@@ -145,7 +152,7 @@ export default class App extends Component {
           </Switch>
           <Footer />
         </Router>
-      </>
+      </div>
     );
   }
 }

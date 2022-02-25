@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Form, FormGroup, Input, Label } from "reactstrap";
 
 export default class MedicationEdit extends Component {
@@ -28,7 +28,11 @@ export default class MedicationEdit extends Component {
   };
 
   handleSubmit = () => {
-    this.props.updateMedication(this.state.updateMedication, this.props.id);
+    this.props.updateMedication(
+      this.state.updateMedication,
+      this.props.medication.id
+    );
+    this.props.handleClose();
   };
 
   render() {
@@ -36,7 +40,7 @@ export default class MedicationEdit extends Component {
       this.state.updateMedication;
     return (
       <>
-        <Form>
+        <div>
           <FormGroup>
             <Label>Medication Name</Label>
             <Input
@@ -107,13 +111,15 @@ export default class MedicationEdit extends Component {
             />
           </FormGroup>
           <br />
-        </Form>
+        </div>
+
         <button className="button-style" onClick={this.handleSubmit}>
           Submit
         </button>
+
         <button
           className="button-style"
-          onClick={() => this.props.deleteMedication(this.props.id)}
+          onClick={() => this.props.deleteMedication(this.props.medication.id)}
         >
           Delete Medication
         </button>

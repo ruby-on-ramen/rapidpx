@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import MedicationEdit from "./MedicationEdit";
-import MedicationNew from "./MedicationNew";
-import MedicationShow from "./MedicationShow";
+import MedicationList from "./MedicationList";
+import Modal from "./Modal";
+import PatientEdit from "./PatientEdit";
 
 const getAge = (dateString) => {
   const today = new Date();
@@ -30,16 +30,17 @@ export default class PatientInfo extends Component {
         need_to_know: "",
         medications: null,
       },
+      modalOpen: false,
     };
   }
 
   componentDidMount() {
-    this.readMedications();
+    this.fetchPatientById(this.props.id);
   }
 
-  readMedications = async () => {
+  fetchPatientById = async (id) => {
     try {
-      const response = await fetch(`/patients/${this.props.id}`);
+      const response = await fetch(`/patients/${id}`);
       const patient = await response.json();
       this.setState({ patient });
     } catch (error) {
@@ -47,63 +48,8 @@ export default class PatientInfo extends Component {
     }
   };
 
-  createMedication = async (newMedication) => {
-    try {
-      const response = await fetch(`/patients/${this.props.id}/medications`, {
-        body: JSON.stringify(newMedication),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      });
-      if (response.status !== 200 && response.status !== 304) {
-        alert("There is something wrong with your patient submssion.");
-        return;
-      }
-      this.readMedications();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  updateMedication = async (updateMedication, id) => {
-    try {
-      const response = await fetch(
-        `/patients/${this.props.id}/medications/${id}`,
-        {
-          body: JSON.stringify(updateMedication),
-          headers: {
-            "Content-Type": "application/json",
-          },
-          method: "PATCH",
-        }
-      );
-      if (response.status !== 200 && response.status !== 304) {
-        alert("Something went wrong with your medication update.");
-        return;
-      }
-      this.readMedications();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  deleteMedication = async (id) => {
-    try {
-      const response = await fetch(
-        `/patients/${this.props.id}/medications/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
-      if (response.status !== 200 && response.status !== 304) {
-        alert("Something went wrong with your medication delete.");
-        return;
-      }
-      this.readMedications();
-    } catch (error) {
-      console.error(error);
-    }
+  handleModalOpen = () => {
+    this.setState({ modalOpen: !this.state.modalOpen });
   };
 
   render() {
@@ -127,6 +73,19 @@ export default class PatientInfo extends Component {
           <h2>
             {first_name} {middle_name} {last_name}
           </h2>
+          {/* <Link to={`/patientedit/${this.props.id}`}> */}
+          <button onClick={this.handleModalOpen} className="button-style">
+            Edit Patient
+          </button>
+          {/* </Link> */}
+          <Modal handleClose={this.handleModalOpen} open={this.state.modalOpen}>
+            <PatientEdit
+              id={this.props.id}
+              updatePatient={this.props.updatePatient}
+              handleModalOpen={this.handleModalOpen}
+              fetchPatientById={this.fetchPatientById}
+            />
+          </Modal>
           <ul>
             <li>Preferred name: {preferred_name}</li>
             <li>DOB: {dob}</li>
@@ -135,54 +94,24 @@ export default class PatientInfo extends Component {
             <li>Pronoun: {pronoun}</li>
             <li>Need To Know: {need_to_know}</li>
           </ul>
-          <h3>Medications</h3>
-          {medications &&
-            medications.map((medication, idx) => {
-              return (
-                <div key={idx}>
-                  <a
-                    href={`https://pubchem.ncbi.nlm.nih.gov/compound/${medication.medication_name}`}
-                    target="_blank"
-                  >
-                    {medication.medication_name}
-                  </a>
-                  <button>Edit</button>
-                  {
-                    <MedicationShow
-                      id={medication.id}
-                      medication={medication}
-                    />
-                  }
-                  {
-                    <MedicationEdit
-                      id={medication.id}
-                      medication={medication}
-                      updateMedication={this.updateMedication}
-                      deleteMedication={this.deleteMedication}
-                    />
-                  }
-                </div>
-              );
-            })}
+          <MedicationList
+            medications={medications}
+            modalOpen={this.state.modalOpen}
+            id={this.props.id}
+            fetchPatientById={this.fetchPatientById}
+          />
         </div>
-        <Link to={`/patientedit/${this.props.id}`}>
-          <button className="button-style">Edit Patient</button>
-        </Link>
         <Link to="/">
           <button
             className="button-style"
             onClick={() => this.props.deletePatient(this.props.id)}
           >
-            Delete
+            Delete Patient
           </button>
         </Link>
         <Link to="/">
           <button className="button-style">Back</button>
         </Link>
-        <MedicationNew
-          createMedication={this.createMedication}
-          id={this.props.id}
-        />
       </>
     );
   }

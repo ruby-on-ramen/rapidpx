@@ -1,3 +1,4 @@
+import { resolveConfig } from "prettier";
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
@@ -42,8 +43,10 @@ export default class PatientEdit extends Component {
     this.setState({ updatePatient });
   };
 
-  handleSubmit = () => {
-    this.props.updatePatient(this.state.updatePatient, this.props.id);
+  handleSubmit = async () => {
+    await this.props.updatePatient(this.state.updatePatient, this.props.id);
+    this.props.fetchPatientById(this.props.id);
+    this.props.handleModalOpen();
   };
 
   readPatient = async () => {
@@ -181,6 +184,9 @@ export default class PatientEdit extends Component {
             <button className="button-style">Back</button>
           </Link>
         </Form>
+        {this.state.submitted && (
+          <Redirect to={`/patientinfo/${this.props.id}`} />
+        )}
       </>
     );
   }
