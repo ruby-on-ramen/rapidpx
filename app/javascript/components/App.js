@@ -13,6 +13,7 @@ import PatientNew from "./pages/PatientNew";
 import PatientEdit from "./pages/PatientEdit";
 import About from "./pages/About";
 
+
 export default class App extends Component {
   constructor(props) {
     super(props);

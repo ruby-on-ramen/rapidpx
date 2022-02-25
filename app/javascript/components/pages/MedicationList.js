@@ -9,20 +9,20 @@ export default class MedicationList extends Component {
     super(props);
     this.state = {
       editingMedication: null,
-      handleEditOpen: false,
-      handleAddOpen: false,
+      isEditOpen: false,
+      isAddOpen: false,
     };
   }
 
   handleEditOpen = (medication) => {
     this.setState({
-      handleEditOpen: !this.state.handleEditOpen,
+      isEditOpen: !this.state.isEditOpen,
       editingMedication: medication ?? null,
     });
   };
 
   handleAddOpen = () => {
-    this.setState({ handleAddOpen: !this.state.handleAddOpen });
+    this.setState({ isAddOpen: !this.state.isAddOpen });
   };
 
   createMedication = async (newMedication) => {
@@ -123,8 +123,8 @@ export default class MedicationList extends Component {
           })}
 
         <Modal
-          handleClose={this.handleEditOpen}
-          open={this.state.handleEditOpen}
+          toggle={this.handleEditOpen}
+          isOpen={this.state.isEditOpen}
         >
           <MedicationEdit
             medication={this.state.editingMedication}
@@ -134,7 +134,7 @@ export default class MedicationList extends Component {
           />
         </Modal>
 
-        <Modal handleClose={this.handleAddOpen} open={this.state.handleAddOpen}>
+        <Modal toggle={this.handleAddOpen} isOpen={this.state.isAddOpen}>
           <MedicationNew
             createMedication={this.createMedication}
             handleClose={this.handleAddOpen}

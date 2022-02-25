@@ -1,7 +1,7 @@
 import { resolveConfig } from "prettier";
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
-import { Form, FormGroup, Input, Label, Button } from "reactstrap";
+import { Form, FormGroup, Input, Label, Button, ModalFooter } from "reactstrap";
 
 export default class PatientEdit extends Component {
   constructor(props) {
@@ -166,23 +166,22 @@ export default class PatientEdit extends Component {
             />
           </FormGroup>
           <br />
-          <Link
-            to={`/patientinfo/${this.props.id}`}
-            onClick={this.handleSubmit}
-          >
-            <button className="button-style">Submit</button>
-          </Link>
-          <Link to="/">
-            <button
-              className="button-style"
-              onClick={() => this.props.deletePatient(this.props.id)}
+          <ModalFooter>
+            <Link
+              to={`/patientinfo/${this.props.id}`}
+              onClick={this.handleSubmit}
             >
-              Delete
-            </button>
-          </Link>
-          <Link to={`/patientinfo/${this.props.id}`}>
-            <button className="button-style">Back</button>
-          </Link>
+              <Button color="primary">Save</Button>
+            </Link>
+            <Link to="/">
+              <Button
+                color="danger"
+                onClick={() => this.props.deletePatient(this.props.id)}
+              >
+                Delete
+              </Button>
+            </Link>
+          </ModalFooter>
         </Form>
         {this.state.submitted && (
           <Redirect to={`/patientinfo/${this.props.id}`} />

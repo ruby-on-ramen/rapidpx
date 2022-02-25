@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import MedicationList from "./MedicationList";
-import Modal from "./Modal";
 import PatientEdit from "./PatientEdit";
+import Modal from "./Modal";
+import { Button } from "reactstrap";
 
 const getAge = (dateString) => {
   const today = new Date();
@@ -73,19 +74,34 @@ export default class PatientInfo extends Component {
           <h2>
             {first_name} {middle_name} {last_name}
           </h2>
-          {/* <Link to={`/patientedit/${this.props.id}`}> */}
-          <button onClick={this.handleModalOpen} className="button-style">
-            Edit Patient
-          </button>
-          {/* </Link> */}
-          <Modal handleClose={this.handleModalOpen} open={this.state.modalOpen}>
+
+          {/* <Modal handleClose={this.handleModalOpen} open={this.state.modalOpen}>
             <PatientEdit
               id={this.props.id}
               updatePatient={this.props.updatePatient}
               handleModalOpen={this.handleModalOpen}
               fetchPatientById={this.fetchPatientById}
             />
-          </Modal>
+          </Modal> */}
+
+          <div>
+            <Button color="primary" onClick={this.handleModalOpen}>
+              Edit
+            </Button>
+            <Modal
+              isOpen={this.state.modalOpen}
+              toggle={this.handleModalOpen}
+              title="Patient Title"
+            >
+              <PatientEdit
+                id={this.props.id}
+                updatePatient={this.props.updatePatient}
+                handleModalOpen={this.handleModalOpen}
+                fetchPatientById={this.fetchPatientById}
+              />
+            </Modal>
+          </div>
+
           <ul>
             <li>Preferred name: {preferred_name}</li>
             <li>DOB: {dob}</li>
