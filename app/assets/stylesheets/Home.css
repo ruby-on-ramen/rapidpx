@@ -1,11 +1,11 @@
 .flex {
   display: flex;
-  gap: 50px;
+  gap: 30px;
   justify-content: center;
   flex-wrap: wrap;
   max-width: 1200px;
-  margin-left: 3em;
-  margin-right: 3em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .patient-card {
