@@ -5,6 +5,16 @@ import MedicationList from "./MedicationList";
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const mockMedication = {
+  medication_name: "foobar",
+  dose: "twice",
+  frequency: "sometimes",
+  time: "now",
+  prescribed_by: "goo",
+  tx: "teapot",
+  route: "i-805",
+};
+
 describe("When MedicationList renders", () => {
   it("displays a header", () => {
     const medicationList = shallow(<MedicationList />);
@@ -12,8 +22,11 @@ describe("When MedicationList renders", () => {
     expect(medicineHeader).toEqual("Medications");
   });
   it("has 1 button", () => {
-    const medicationListWrapper = shallow(<MedicationList medication={[]} />);
-    const button = medicationListWrapper.find("button");
+    const medicationListWrapper = shallow(
+      <MedicationList medications={[mockMedication]} />
+    );
+    const button = medicationListWrapper.find("#med-div-0");
+    medicationListWrapper.debug();
     expect(button.length).toEqual(1);
   });
   it("has a modal", () => {

@@ -13,7 +13,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe("when PatientEdit renders", () => {
   it("has a button to go back to patient profile", () => {
     const info = shallow(<PatientEdit id={1} />);
-    const infoButton = info.find('button[children="Back"]');
+    const infoButton = info.find('Button[children="Delete"]');
     expect(infoButton.length).toEqual(1);
   });
 });

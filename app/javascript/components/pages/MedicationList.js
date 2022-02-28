@@ -100,7 +100,7 @@ export default class MedicationList extends Component {
         {this.props.medications &&
           this.props.medications.map((medication, idx) => {
             return (
-              <div key={idx}>
+              <div key={idx} id={`med-div-${idx}`}>
                 <a
                   href={`https://pubchem.ncbi.nlm.nih.gov/compound/${medication.medication_name}`}
                   target="_blank"
