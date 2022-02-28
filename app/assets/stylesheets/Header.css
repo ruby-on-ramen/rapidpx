@@ -3,6 +3,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
 }
 
 nav div {
@@ -22,4 +23,17 @@ nav div {
 }
 .logo > span {
   color: rgb(8, 62, 154);
+}
+.header-background {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+  length: 100%;
+  /* text-align: center; */
+  background: #a4d0e0;
+  flex-direction: row;
+  justify-content: space-between;
+  /* color: white;
+  font-size: 30px; */
 }
