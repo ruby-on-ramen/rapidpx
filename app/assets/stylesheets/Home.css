@@ -1,3 +1,16 @@
+body {
+  background-image: url(hexagons.svg);
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-attachment: fixed;
+  background-position: center;
+  /* display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto; */
+  /* margin-top: -16.5px; */
+}
+
 .flex {
   display: flex;
   gap: 30px;
@@ -12,7 +25,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  box-shadow: rgba(17, 17, 26, 0.8) 0px 0px 16px;
+  background-color: white;
+  transition: transform 0.7s ease;
 }
 
 .patient-card p {
@@ -30,5 +45,8 @@
   height: 250px;
   object-fit: cover;
   box-shadow: 16px 16px 8px -10px var(--accent);
-  transition: transform 0.5s ease;
+}
+
+.patient-card:hover {
+  transform: scale(1.1);
 }
