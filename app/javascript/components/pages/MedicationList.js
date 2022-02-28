@@ -4,6 +4,8 @@ import MedicationNew from "./MedicationNew";
 import MedicationShow from "./MedicationShow";
 import { Button } from "reactstrap";
 import Modal from "./Modal";
+import edit from "../../../assets/images/edit.svg";
+import trash from "../../../assets/images/delete.svg";
 
 export default class MedicationList extends Component {
   constructor(props) {
@@ -105,19 +107,20 @@ export default class MedicationList extends Component {
                 >
                   {medication.medication_name}
                 </a>
-                <Button
-                  color="primary"
+                <input
+                  type="image"
+                  className="edit-button"
+                  src={edit}
+                  alt="Edit Medication Info"
                   onClick={() => this.handleEditOpen(medication)}
-                >
-                  Edit
-                </Button>
-                <Button
+                />
+                <input
+                  type="image"
+                  className="edit-button"
+                  src={trash}
+                  alt="Delete Medication Info"
                   onClick={() => this.deleteMedication(medication.id)}
-                  color="danger"
-                >
-                  Delete
-                </Button>
-
+                />
                 <MedicationShow id={medication.id} medication={medication} />
               </div>
             );

@@ -1,14 +1,17 @@
 .flex {
   display: flex;
-  justify-content: flex-start;
+  gap: 50px;
+  justify-content: center;
   flex-wrap: wrap;
-  width: 100%;
+  max-width: 1200px;
+  margin-left: 3em;
+  margin-right: 3em;
 }
 
 .patient-card {
   display: flex;
-  margin: 3rem;
-  width: 400px;
+  flex-direction: column;
+  align-items: center;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 }
 
@@ -22,7 +25,10 @@
   text-decoration: none;
 }
 
-.patient-image {
-  text-align: center;
-  width: 400px;
+.patient-image img {
+  width: 225px;
+  height: 250px;
+  object-fit: cover;
+  box-shadow: 16px 16px 8px -10px var(--accent);
+  transition: transform 0.5s ease;
 }

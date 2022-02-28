@@ -72,13 +72,14 @@ export default class PatientInfo extends Component {
     return (
       <>
         <div>
-          <img src={image} alt={first_name} />
+          <img src={image} alt={first_name} width="425px" />
           <h2>
             {first_name} {middle_name} {last_name}
             <input
               type="image"
               className="edit-button"
               src={edit}
+              alt="Edit Patient Info"
               onClick={this.handleModalOpen}
             />
           </h2>
@@ -118,6 +119,7 @@ export default class PatientInfo extends Component {
         </Link>
         <Link to="/">
           <Button
+            className="delete-button"
             color="danger"
             onClick={() => this.props.deletePatient(this.props.id)}
           >

@@ -21,11 +21,16 @@
 @import "./Modal.css";
 
 .edit-button {
-  width: 30px;
-  margin-left: 15px;
+  width: 2rem;
+  margin-left: 10px;
+  margin-bottom: -2px;
 }
 
 .edit-button:hover {
   cursor: pointer;
   fill: blue;
+}
+
+.delete-button {
+  margin-left: 0.5rem;
 }

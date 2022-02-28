@@ -42,6 +42,7 @@ export default class Home extends Component {
               );
             })}
         </div>
+        <br />
         <Button color="primary" onClick={this.handleModalOpen}>
           Add New Patient
         </Button>
