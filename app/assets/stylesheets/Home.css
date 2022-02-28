@@ -1,15 +1,28 @@
+body {
+  background-image: url(hexagons.svg);
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-attachment: fixed;
+  background-position: center;
+}
+
 .flex {
   display: flex;
-  justify-content: flex-start;
+  gap: 30px;
+  justify-content: center;
   flex-wrap: wrap;
-  width: 100%;
+  max-width: 1200px;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .patient-card {
   display: flex;
-  margin: 3rem;
-  width: 400px;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(17, 17, 26, 0.8) 0px 0px 16px;
+  background-color: white;
+  transition: transform 0.7s ease;
 }
 
 .patient-card p {
@@ -22,7 +35,13 @@
   text-decoration: none;
 }
 
-.patient-image {
-  text-align: center;
-  width: 400px;
+.patient-image img {
+  width: 225px;
+  height: 250px;
+  object-fit: cover;
+  box-shadow: 16px 16px 8px -10px var(--accent);
+}
+
+.patient-card:hover {
+  transform: scale(1.1);
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { Form, FormGroup, Input, Label } from "reactstrap";
+import { Form, FormGroup, Input, Label, Button, ModalFooter } from "reactstrap";
 
 export default class MedicationEdit extends Component {
   constructor(props) {
@@ -112,17 +112,20 @@ export default class MedicationEdit extends Component {
           </FormGroup>
           <br />
         </div>
+        <ModalFooter>
+          <Button color="primary" onClick={this.handleSubmit}>
+            Submit
+          </Button>
 
-        <button className="button-style" onClick={this.handleSubmit}>
-          Submit
-        </button>
-
-        <button
-          className="button-style"
-          onClick={() => this.props.deleteMedication(this.props.medication.id)}
-        >
-          Delete Medication
-        </button>
+          <Button
+            color="danger"
+            onClick={() =>
+              this.props.deleteMedication(this.props.medication.id)
+            }
+          >
+            Delete Medication
+          </Button>
+        </ModalFooter>
       </>
     );
   }

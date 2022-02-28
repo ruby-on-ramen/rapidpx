@@ -2,13 +2,18 @@ import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import MedicationList from "./MedicationList";
-// import MockMeds from "../MockMeds"
-
-
-
-
 
 Enzyme.configure({ adapter: new Adapter() });
+
+const mockMedication = {
+  medication_name: "foobar",
+  dose: "twice",
+  frequency: "sometimes",
+  time: "now",
+  prescribed_by: "goo",
+  tx: "teapot",
+  route: "i-805",
+};
 
 describe("When MedicationList renders", () => {
   it("displays a header", () => {
@@ -17,8 +22,11 @@ describe("When MedicationList renders", () => {
     expect(medicineHeader).toEqual("Medications");
   });
   it("has 1 button", () => {
-    const medicationListWrapper = shallow(<MedicationList medication={[]} />);
-    const button = medicationListWrapper.find("button");
+    const medicationListWrapper = shallow(
+      <MedicationList medications={[mockMedication]} />
+    );
+    const button = medicationListWrapper.find("#med-div-0");
+    medicationListWrapper.debug();
     expect(button.length).toEqual(1);
   });
   it("has a modal", () => {
@@ -28,15 +36,12 @@ describe("When MedicationList renders", () => {
   });
   it("has an add medication button", () => {
     const medicationListWrapper = shallow(<MedicationList medication={[]} />);
-    const modal = medicationListWrapper.find("button").text()
+    const modal = medicationListWrapper.find("button").text();
     expect(modal).toContain("Add Medication");
   });
   it("has a modal that contains MedicationNew", () => {
     const medicationListWrapper = shallow(<MedicationList medication={[]} />);
-    const modal = medicationListWrapper.find("MedicationEdit")
-    expect(modal.length).toEqual(1)
-    
-})
-
-
-})
+    const modal = medicationListWrapper.find("MedicationEdit");
+    expect(modal.length).toEqual(1);
+  });
+});

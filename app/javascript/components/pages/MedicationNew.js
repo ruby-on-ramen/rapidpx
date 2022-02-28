@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Input, Label, Button } from "reactstrap";
+import { Form, FormGroup, Input, Label, Button, ModalFooter } from "reactstrap";
 import { Redirect, Link } from "react-router-dom";
 
 export default class MedicationNew extends Component {
@@ -47,7 +47,6 @@ export default class MedicationNew extends Component {
       this.state.newMedication;
     return (
       <>
-        <h3>Add A Medication</h3>
         <Form>
           <FormGroup>
             <Label>Medication Name</Label>
@@ -112,9 +111,11 @@ export default class MedicationNew extends Component {
               value={route}
             />
           </FormGroup>
-          <Button onClick={this.handleSubmit} className="button-style">
-            Add Medication
-          </Button>
+          <ModalFooter>
+            <Button color="primary" onClick={this.handleSubmit}>
+              Add Medication
+            </Button>
+          </ModalFooter>
         </Form>
         {this.state.submitted && (
           <Redirect to={`/patientinfo/${this.props.id}`} />

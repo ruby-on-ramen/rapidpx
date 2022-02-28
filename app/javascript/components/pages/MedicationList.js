@@ -2,27 +2,30 @@ import React, { Component } from "react";
 import MedicationEdit from "./MedicationEdit";
 import MedicationNew from "./MedicationNew";
 import MedicationShow from "./MedicationShow";
+import { Button } from "reactstrap";
 import Modal from "./Modal";
+import edit from "../../../assets/images/edit.svg";
+import trash from "../../../assets/images/delete.svg";
 
 export default class MedicationList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       editingMedication: null,
-      handleEditOpen: false,
-      handleAddOpen: false,
+      isEditOpen: false,
+      isAddOpen: false,
     };
   }
 
   handleEditOpen = (medication) => {
     this.setState({
-      handleEditOpen: !this.state.handleEditOpen,
+      isEditOpen: !this.state.isEditOpen,
       editingMedication: medication ?? null,
     });
   };
 
   handleAddOpen = () => {
-    this.setState({ handleAddOpen: !this.state.handleAddOpen });
+    this.setState({ isAddOpen: !this.state.isAddOpen });
   };
 
   createMedication = async (newMedication) => {
@@ -88,43 +91,45 @@ export default class MedicationList extends Component {
     return (
       <div>
         <h3>Medications</h3>
-        <button onClick={this.handleAddOpen} className="button-style">
+        <Button color="primary" onClick={this.handleAddOpen}>
           Add Medication
-        </button>
+        </Button>
         <br />
         <br />
         <br />
         {this.props.medications &&
           this.props.medications.map((medication, idx) => {
             return (
-              <div key={idx}>
+              <div key={idx} id={`med-div-${idx}`}>
                 <a
                   href={`https://pubchem.ncbi.nlm.nih.gov/compound/${medication.medication_name}`}
                   target="_blank"
                 >
                   {medication.medication_name}
                 </a>
-                <button
-                  className="button-style"
+                <input
+                  type="image"
+                  className="edit-button"
+                  src={edit}
+                  alt="Edit Medication Info"
                   onClick={() => this.handleEditOpen(medication)}
-                >
-                  Edit
-                </button>
-                <button
+                />
+                <input
+                  type="image"
+                  className="edit-button"
+                  src={trash}
+                  alt="Delete Medication Info"
                   onClick={() => this.deleteMedication(medication.id)}
-                  className="button-style"
-                >
-                  Delete
-                </button>
-
+                />
                 <MedicationShow id={medication.id} medication={medication} />
               </div>
             );
           })}
 
         <Modal
-          handleClose={this.handleEditOpen}
-          open={this.state.handleEditOpen}
+          toggle={this.handleEditOpen}
+          isOpen={this.state.isEditOpen}
+          title="Edit Medication"
         >
           <MedicationEdit
             medication={this.state.editingMedication}
@@ -134,7 +139,11 @@ export default class MedicationList extends Component {
           />
         </Modal>
 
-        <Modal handleClose={this.handleAddOpen} open={this.state.handleAddOpen}>
+        <Modal
+          toggle={this.handleAddOpen}
+          isOpen={this.state.isAddOpen}
+          title="Add Medication"
+        >
           <MedicationNew
             createMedication={this.createMedication}
             handleClose={this.handleAddOpen}

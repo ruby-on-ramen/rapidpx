@@ -1,12 +1,15 @@
 nav {
   display: flex;
   flex-direction: row;
-  margin: 1rem;
   justify-content: space-between;
   align-items: center;
 }
+
+nav div {
+  display: flex;
+}
+
 .nav-link {
-  margin: 1rem;
   text-decoration: none;
   color: black;
 }
@@ -16,7 +19,6 @@ nav {
 .logo {
   font-size: 2rem;
   font-weight: bold;
-  margin-left: 2rem;
 }
 .logo > span {
   color: rgb(8, 62, 154);

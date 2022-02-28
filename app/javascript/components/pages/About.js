@@ -48,11 +48,19 @@ export default class About extends Component {
               <div className="container">
                 <h2>Kirk Wang</h2>
                 <p className="title">Tech Lead</p>
-                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                <p>email3@example.com</p>
                 <p>
-                  <button className="button-style">Contact</button>
+                  Hello! I live in San Diego and looking for a full time
+                  positions, remote preferred. I am developing my skills in Ruby
+                  on Rails with React and also looking to check out anything
+                  new. I am quick to respond, reliable, and most importantly
+                  love ramen.
                 </p>
+                <a
+                  href="https://www.linkedin.com/in/kirkkwang/"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
               </div>
             </div>
           </div>

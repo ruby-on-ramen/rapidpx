@@ -12,7 +12,7 @@ patients = [
     gender: 'Female',
     pronoun: 'She/Her',
     image:
-      'https://i.pinimg.com/736x/d7/69/91/d76991d1ed2092e7619625b62b2be0df.jpg',
+      'https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80',
     need_to_know: 'Bee Allergie',
     medications: [
       {
@@ -22,7 +22,7 @@ patients = [
         time: 'As needed',
         prescribed_by: 'Dr. Julio',
         tx: 'Constipation',
-        route: 'By mouth'
+        route: 'By mouth',
       },
       {
         medication_name: 'Risperidone',
@@ -31,7 +31,7 @@ patients = [
         time: 'Noon',
         prescribed_by: 'Dr. Yomama',
         tx: 'Behavior problems',
-        route: 'By mouth'
+        route: 'By mouth',
       },
       {
         medication_name: 'Quetiapine',
@@ -40,9 +40,9 @@ patients = [
         time: 'Before bedtime',
         prescribed_by: 'Dr. Julio',
         tx: 'Antipsychotic',
-        route: 'By mouth'
-      }
-    ]
+        route: 'By mouth',
+      },
+    ],
   },
   {
     first_name: 'Gerald',
@@ -53,7 +53,7 @@ patients = [
     gender: 'Male',
     pronoun: 'He/Him',
     image:
-      'https://www.boredpanda.com/blog/wp-content/uploads/2019/07/faceapp-42-5d2f3610a981a__700.jpg',
+      'https://images.unsplash.com/photo-1535643302794-19c3804b874b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8b2xkJTIwcGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     need_to_know: 'Deaf, he screams a lot',
     medications: [
       {
@@ -63,7 +63,7 @@ patients = [
         time: 'Morning',
         prescribed_by: 'Dr. Glam',
         tx: 'Schizophrenia',
-        route: 'Injection'
+        route: 'Injection',
       },
       {
         medication_name: 'Metronidazole',
@@ -72,7 +72,7 @@ patients = [
         time: 'Before bed',
         prescribed_by: 'Dr. Who',
         tx: 'Antibiotic',
-        route: 'Topical'
+        route: 'Topical',
       },
       {
         medication_name: 'Lorazepam',
@@ -81,7 +81,7 @@ patients = [
         time: 'As needed',
         prescribed_by: 'Dr. Tabata',
         tx: 'Anxiety',
-        route: 'By mouth'
+        route: 'By mouth',
       },
       {
         medication_name: 'Zaditor Antihistamine',
@@ -90,9 +90,9 @@ patients = [
         time: 'Morning',
         prescribed_by: 'Dr. Glam',
         tx: 'Itching',
-        route: 'Eye drop'
-      }
-    ]
+        route: 'Eye drop',
+      },
+    ],
   },
   {
     first_name: 'Dwayne',
@@ -103,7 +103,7 @@ patients = [
     gender: 'Male',
     pronoun: 'He/Him',
     image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPJuAdZN05gfFF7WLSehsSohkzG2fx9qH8_w&usqp=CAU',
+      'https://images.unsplash.com/photo-1535320485706-44d43b919500?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG9sZCUyMHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
     need_to_know: 'Likes to show off',
     medications: [
       {
@@ -113,7 +113,7 @@ patients = [
         time: 'As needed',
         prescribed_by: 'Dr. Who',
         tx: 'Allergies',
-        route: 'By mouth'
+        route: 'By mouth',
       },
       {
         medication_name: 'Acetaminophen',
@@ -122,7 +122,7 @@ patients = [
         time: 'evening',
         prescribed_by: 'Dr. Fox',
         tx: 'Pain reliever',
-        route: 'By mouth'
+        route: 'By mouth',
       },
       {
         medication_name: 'Hydroxyzine',
@@ -131,9 +131,9 @@ patients = [
         time: '8am and 8pm',
         prescribed_by: 'Dr. Yomama',
         tx: 'Itching',
-        route: 'By mouth'
-      }
-    ]
+        route: 'By mouth',
+      },
+    ],
   },
   {
     first_name: 'Cole',
@@ -144,7 +144,7 @@ patients = [
     gender: 'Male',
     pronoun: 'He/Him',
     image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC4zhNXDKVIU0dz7RFPQiHNNh_pblIZhHA8Yuuh0hCM5-yO1jKwFcIivMYbLl2tlT4-pY&usqp=CAU',
+      'https://images.unsplash.com/photo-1444069069008-83a57aac43ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fG9sZCUyMHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
     need_to_know: '',
     medications: [
       {
@@ -154,7 +154,7 @@ patients = [
         time: 'morning',
         prescribed_by: 'Dr. Fox',
         tx: 'Treat depression',
-        route: 'By mouth'
+        route: 'By mouth',
       },
       {
         medication_name: 'Zaditor Antihistamine',
@@ -163,7 +163,7 @@ patients = [
         time: 'morning',
         prescribed_by: 'Dr. Biber',
         tx: 'Itching',
-        route: 'Eye drop'
+        route: 'Eye drop',
       },
       {
         medication_name: 'Loratadine',
@@ -172,7 +172,7 @@ patients = [
         time: 'As needed',
         prescribed_by: 'Dr. Who',
         tx: 'Allergies',
-        route: 'By mouth'
+        route: 'By mouth',
       },
       {
         medication_name: 'Acetaminophen ',
@@ -181,9 +181,9 @@ patients = [
         time: 'Evening',
         prescribed_by: 'Dr. Fox',
         tx: 'Pain reliever',
-        route: 'By mouth'
-      }
-    ]
+        route: 'By mouth',
+      },
+    ],
   },
   {
     first_name: 'Katheryn',
@@ -194,7 +194,7 @@ patients = [
     gender: 'Female',
     pronoun: 'She/Her',
     image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4531rYrvRJG1L3K4OMrUqKldWSqlNoPikMGTvm9MHEMmkHwpCy_jQcDWcNwdwRlsnHXE&usqp=CAU',
+      'https://images.unsplash.com/photo-1526860918836-81de4cae5681?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fG9sZCUyMHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
     need_to_know: '',
     medications: [
       {
@@ -204,7 +204,7 @@ patients = [
         time: 'As needed',
         prescribed_by: 'Dr. Tabata',
         tx: 'Anxiety',
-        route: 'By mouth'
+        route: 'By mouth',
       },
       {
         medication_name: 'Hydroxyzine',
@@ -213,7 +213,7 @@ patients = [
         time: '8am and 8pm',
         prescribed_by: 'Dr. Yomama',
         tx: 'Anxiety and tension',
-        route: 'By mouth'
+        route: 'By mouth',
       },
       {
         medication_name: 'Citalorpram',
@@ -222,10 +222,10 @@ patients = [
         time: 'Morning',
         prescribed_by: 'Dr. Fox',
         tx: 'Depression',
-        route: 'By mouth'
-      }
-    ]
-  }
+        route: 'By mouth',
+      },
+    ],
+  },
 ]
 
 users.each do |user|
@@ -243,7 +243,7 @@ patients.each do |patient|
     gender: patient[:gender],
     pronoun: patient[:pronoun],
     image: patient[:image],
-    need_to_know: patient[:need_to_know]
+    need_to_know: patient[:need_to_know],
   )
   patient[:medications].each do |medication|
     Patient.last.medications.create(
@@ -253,7 +253,7 @@ patients.each do |patient|
       time: medication[:time],
       prescribed_by: medication[:prescribed_by],
       tx: medication[:tx],
-      route: medication[:route]
+      route: medication[:route],
     )
   end
   puts "Creating patient #{patient}"

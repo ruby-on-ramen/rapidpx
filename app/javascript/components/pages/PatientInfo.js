@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import MedicationList from "./MedicationList";
-import Modal from "./Modal";
 import PatientEdit from "./PatientEdit";
+import Modal from "./Modal";
+import { Button } from "reactstrap";
+import edit from "../../../assets/images/edit.svg";
 
 export default class PatientInfo extends Component {
   constructor(props) {
@@ -70,23 +72,33 @@ export default class PatientInfo extends Component {
     return (
       <>
         <div>
-          <img src={image} alt={first_name} />
+          <img src={image} alt={first_name} width="425px" />
           <h2>
             {first_name} {middle_name} {last_name}
-          </h2>
-          {/* <Link to={`/patientedit/${this.props.id}`}> */}
-          <button onClick={this.handleModalOpen} className="button-style">
-            Edit Patient
-          </button>
-          {/* </Link> */}
-          <Modal handleClose={this.handleModalOpen} open={this.state.modalOpen}>
-            <PatientEdit
-              id={this.props.id}
-              updatePatient={this.props.updatePatient}
-              handleModalOpen={this.handleModalOpen}
-              fetchPatientById={this.fetchPatientById}
+            <input
+              type="image"
+              className="edit-button"
+              src={edit}
+              alt="Edit Patient Info"
+              onClick={this.handleModalOpen}
             />
-          </Modal>
+          </h2>
+
+          <div>
+            <Modal
+              isOpen={this.state.modalOpen}
+              toggle={this.handleModalOpen}
+              title="Edit Patient"
+            >
+              <PatientEdit
+                id={this.props.id}
+                updatePatient={this.props.updatePatient}
+                handleModalOpen={this.handleModalOpen}
+                fetchPatientById={this.fetchPatientById}
+              />
+            </Modal>
+          </div>
+
           <ul>
             <li>Preferred name: {preferred_name}</li>
             <li>DOB: {dob}</li>
@@ -103,15 +115,16 @@ export default class PatientInfo extends Component {
           />
         </div>
         <Link to="/">
-          <button
-            className="button-style"
+          <Button color="primary">Back</Button>
+        </Link>
+        <Link to="/">
+          <Button
+            className="delete-button"
+            color="danger"
             onClick={() => this.props.deletePatient(this.props.id)}
           >
             Delete Patient
-          </button>
-        </Link>
-        <Link to="/">
-          <button className="button-style">Back</button>
+          </Button>
         </Link>
       </>
     );
