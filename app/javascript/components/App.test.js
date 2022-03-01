@@ -1,7 +1,8 @@
 import React from "react";
-import Enzyme, { shallow } from "enzyme";
+import Enzyme, { mount, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import App from "./App";
+import { MemoryRouter, Route } from "react-router-dom";
 
 const mockPatients = {};
 
@@ -21,4 +22,10 @@ describe("When App renders", () => {
     const AppForm = AppWrapper.find("Footer");
     expect(AppForm.length).toEqual(1);
   });
+  it("has returns a Home component", () => {
+    const AppWrapper = shallow(<App medication={{}} />);
+    const home = AppWrapper.find("Route");
+    expect(home.length).toEqual(4);
+  });
 });
+

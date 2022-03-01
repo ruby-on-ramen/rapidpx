@@ -35,7 +35,7 @@ nav div {
   justify-content: space-between;
   margin: 0;
   width: 100%;
-  background: #a4d0e0;
+  background-color: rgba(164, 208, 224, 0.5);
   flex-direction: row;
   justify-content: space-between;
 }
