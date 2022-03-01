@@ -70,11 +70,11 @@ export default class PatientInfo extends Component {
     } = this.state.patient;
 
     return (
-      <>
+      <section className="patient-info">
         <div>
-          <img src={image} alt={first_name} width="425px" />
+          <img src={image} alt={first_name} width="300px" />
           <h2>
-            {first_name} {middle_name} {last_name}
+            {first_name} {last_name}
             <input
               type="image"
               className="edit-button"
@@ -83,22 +83,6 @@ export default class PatientInfo extends Component {
               onClick={this.handleModalOpen}
             />
           </h2>
-
-          <div>
-            <Modal
-              isOpen={this.state.modalOpen}
-              toggle={this.handleModalOpen}
-              title="Edit Patient"
-            >
-              <PatientEdit
-                id={this.props.id}
-                updatePatient={this.props.updatePatient}
-                handleModalOpen={this.handleModalOpen}
-                fetchPatientById={this.fetchPatientById}
-              />
-            </Modal>
-          </div>
-
           <ul>
             <li>Preferred name: {preferred_name}</li>
             <li>DOB: {dob}</li>
@@ -107,26 +91,40 @@ export default class PatientInfo extends Component {
             <li>Pronoun: {pronoun}</li>
             <li>Need To Know: {need_to_know}</li>
           </ul>
-          <MedicationList
-            medications={medications}
-            modalOpen={this.state.modalOpen}
-            id={this.props.id}
-            fetchPatientById={this.fetchPatientById}
-          />
+          <Link to="/">
+            <Button color="primary">Back</Button>
+          </Link>
+          <Link to="/">
+            <Button
+              className="delete-button"
+              color="danger"
+              onClick={() => this.props.deletePatient(this.props.id)}
+            >
+              Delete Patient
+            </Button>
+          </Link>
         </div>
-        <Link to="/">
-          <Button color="primary">Back</Button>
-        </Link>
-        <Link to="/">
-          <Button
-            className="delete-button"
-            color="danger"
-            onClick={() => this.props.deletePatient(this.props.id)}
+        <div>
+          <Modal
+            isOpen={this.state.modalOpen}
+            toggle={this.handleModalOpen}
+            title="Edit Patient"
           >
-            Delete Patient
-          </Button>
-        </Link>
-      </>
+            <PatientEdit
+              id={this.props.id}
+              updatePatient={this.props.updatePatient}
+              handleModalOpen={this.handleModalOpen}
+              fetchPatientById={this.fetchPatientById}
+            />
+          </Modal>
+        </div>
+        <MedicationList
+          medications={medications}
+          modalOpen={this.state.modalOpen}
+          id={this.props.id}
+          fetchPatientById={this.fetchPatientById}
+        />
+      </section>
     );
   }
 }

@@ -32,13 +32,26 @@ export default class About extends Component {
           <div className="column">
             <div className="card">
               <div className="container">
+                <img
+                  src={require("../../../assets/images/chris.jpg")}
+                  width="300px"
+                />
                 <h2>Christopher Hickey</h2>
                 <p className="title">Project Manager</p>
-                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                <p>email2@example.com</p>
                 <p>
-                  <button className="button-style">Contact</button>
+                  I enjoy team meetings, coffee, and coding. My most recent
+                  adventure has lead me to LEARN Academy where I found myself in
+                  an intense coding boot camp and became a full-stack developer.
+                  My background is in digital marketing and video editing.
+                  Providing marketing strategies and delivering video marketing
+                  projects.
                 </p>
+                <a
+                  href="https://www.linkedin.com/in/christopher-hickey-6228b3a/"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
               </div>
             </div>
           </div>
@@ -46,6 +59,10 @@ export default class About extends Component {
           <div className="column">
             <div className="card">
               <div className="container">
+                <img
+                  src={require("../../../assets/images/kirk.jpg")}
+                  width="300px"
+                />
                 <h2>Kirk Wang</h2>
                 <p className="title">Tech Lead</p>
                 <p>

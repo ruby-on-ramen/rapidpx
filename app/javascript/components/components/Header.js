@@ -13,15 +13,14 @@ export default class Header extends Component {
     return (
       <nav>
         <header className="header-background">
-          <div className="logo">
-            RapidP<span>x</span>
-          </div>
+          <NavLink to="/" className="nav-link-footer">
+            <div className="logo">
+              RapidP<span>x</span>
+            </div>
+          </NavLink>
           <div>
             <NavLink to="/about" className="nav-link">
               About Us
-            </NavLink>
-            <NavLink to="/contact" className="nav-link">
-              Contact Us
             </NavLink>
             <a href={sign_out_route} className="nav-link">
               Sign Out
