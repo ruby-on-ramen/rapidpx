@@ -70,20 +70,25 @@ export default class MedicationList extends Component {
   };
 
   deleteMedication = async (id) => {
-    try {
-      const response = await fetch(
-        `/patients/${this.props.id}/medications/${id}`,
-        {
-          method: "DELETE",
+    if (
+      window.confirm("Are you sure you want to delete this medication?") ===
+      true
+    ) {
+      try {
+        const response = await fetch(
+          `/patients/${this.props.id}/medications/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
+        if (response.status !== 200 && response.status !== 304) {
+          alert("Something went wrong with your medication delete.");
+          return;
         }
-      );
-      if (response.status !== 200 && response.status !== 304) {
-        alert("Something went wrong with your medication delete.");
-        return;
+        this.props.fetchPatientById(this.props.id);
+      } catch (error) {
+        console.error(error);
       }
-      this.props.fetchPatientById(this.props.id);
-    } catch (error) {
-      console.error(error);
     }
   };
 

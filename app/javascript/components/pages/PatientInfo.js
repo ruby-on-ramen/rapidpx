@@ -5,6 +5,7 @@ import PatientEdit from "./PatientEdit";
 import Modal from "./Modal";
 import { Button } from "reactstrap";
 import edit from "../../../assets/images/edit.svg";
+import { Redirect } from "react-router-dom";
 
 export default class PatientInfo extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ export default class PatientInfo extends Component {
         medications: null,
       },
       modalOpen: false,
+      submitted: false,
     };
   }
 
@@ -53,6 +55,15 @@ export default class PatientInfo extends Component {
 
   handleModalOpen = () => {
     this.setState({ modalOpen: !this.state.modalOpen });
+  };
+
+  handleDelete = () => {
+    if (
+      window.confirm("Are you sure you want to delete this patient?") === true
+    ) {
+      this.props.deletePatient(this.props.id);
+      this.setState({ submitted: true });
+    }
   };
 
   render() {
@@ -94,15 +105,13 @@ export default class PatientInfo extends Component {
           <Link to="/">
             <Button color="primary">Back</Button>
           </Link>
-          <Link to="/">
-            <Button
-              className="delete-button"
-              color="danger"
-              onClick={() => this.props.deletePatient(this.props.id)}
-            >
-              Delete Patient
-            </Button>
-          </Link>
+          <Button
+            className="delete-button"
+            color="danger"
+            onClick={this.handleDelete}
+          >
+            Delete Patient
+          </Button>
         </div>
         <div>
           <Modal
@@ -124,6 +133,7 @@ export default class PatientInfo extends Component {
           id={this.props.id}
           fetchPatientById={this.fetchPatientById}
         />
+        {this.state.submitted && <Redirect to={`/`} />}
       </section>
     );
   }
