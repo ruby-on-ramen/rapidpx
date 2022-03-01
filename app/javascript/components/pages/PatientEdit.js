@@ -1,4 +1,3 @@
-import { resolveConfig } from "prettier";
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { Form, FormGroup, Input, Label, Button, ModalFooter } from "reactstrap";
