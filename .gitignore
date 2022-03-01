@@ -38,3 +38,5 @@ yarn-debug.log*
 # Ignore all simplecov JSON
 /coverage
 /coverage
+
+.DS_Store
