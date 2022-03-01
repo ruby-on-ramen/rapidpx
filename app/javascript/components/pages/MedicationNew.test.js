@@ -26,4 +26,14 @@ describe("When MedicationNew renders", () => {
     const MedicationNewForm = MedicationNewWrapper.find("Button");
     expect(MedicationNewForm.length).toEqual(1);
   });
+  it("handles input change", () => {
+    const medicationNewWrapper = shallow(<MedicationNew />);
+    const input = medicationNewWrapper.find({ name: "medication_name" });
+    const expected = "Hello";
+    input.simulate("change", {
+      target: { value: expected, name: "medication_name" },
+    });
+    const actual = medicationNewWrapper.state().newMedication.medication_name;
+    expect(actual).toEqual(expected);
+  });
 });

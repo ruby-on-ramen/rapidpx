@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Modal as ReactStrapModal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from "reactstrap";
+import { Modal as ReactStrapModal, ModalHeader, ModalBody } from "reactstrap";
 
 export default class Modal extends Component {
   render() {

@@ -7,9 +7,6 @@ const Footer = () => {
       <div className="logo-footer">
         RapidP<span>x</span> © 2022
       </div>
-      <NavLink to="/" className="nav-link-footer">
-        Home
-      </NavLink>
     </footer>
   );
 };

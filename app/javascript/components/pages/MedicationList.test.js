@@ -36,12 +36,40 @@ describe("When MedicationList renders", () => {
   });
   it("has an add medication button", () => {
     const medicationListWrapper = shallow(<MedicationList medication={[]} />);
-    const modal = medicationListWrapper.find("button").text();
-    expect(modal).toContain("Add Medication");
+    const modal = medicationListWrapper.find(
+      'Button[children="Add Medication"]'
+    );
+    expect(modal.length).toEqual(1);
   });
   it("has a modal that contains MedicationNew", () => {
     const medicationListWrapper = shallow(<MedicationList medication={[]} />);
     const modal = medicationListWrapper.find("MedicationEdit");
     expect(modal.length).toEqual(1);
+  });
+  it("sets the state of isEditOpen to the opposite", () => {
+    const medicationListWrapper = shallow(<MedicationList medication={[]} />);
+    medicationListWrapper.instance().handleEditOpen();
+    expect(medicationListWrapper.state().isEditOpen).toEqual(true);
+    medicationListWrapper.instance().handleEditOpen();
+    expect(medicationListWrapper.state().isEditOpen).toEqual(false);
+  });
+  it("sets the state of isAddOpen to the opposite", () => {
+    const medicationListWrapper = shallow(<MedicationList medication={[]} />);
+    medicationListWrapper.instance().handleAddOpen();
+    expect(medicationListWrapper.state().isAddOpen).toEqual(true);
+    medicationListWrapper.instance().handleAddOpen();
+    expect(medicationListWrapper.state().isAddOpen).toEqual(false);
+  });
+  it("Test click event on input", () => {
+    const mockCallBack = jest.fn();
+    const medicationListWrapper = shallow(
+      <MedicationList
+        deletePatient={mockCallBack}
+        medications={[mockMedication]}
+      />
+    );
+    const input = medicationListWrapper.find("input");
+    input.at(0).simulate("click");
+    expect(medicationListWrapper.state().isEditOpen).toEqual(true);
   });
 });

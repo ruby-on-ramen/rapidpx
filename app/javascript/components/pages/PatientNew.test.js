@@ -6,11 +6,6 @@ import PatientNew from "./PatientNew.js";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("When PatientNew renders", () => {
-  it("displays a heading", () => {
-    const patientNew = shallow(<PatientNew />);
-    const newheading = patientNew.find("h3");
-    expect(newheading.text()).toEqual("Add a New Patient");
-  });
   it("displays a form", () => {
     const patientNew = shallow(<PatientNew />);
     const formGroup = patientNew.find("FormGroup");
@@ -24,7 +19,9 @@ describe("When PatientNew renders", () => {
     const patientNewWrapper = shallow(<PatientNew />);
     const input = patientNewWrapper.find({ name: "first_name" });
     const expected = "Hello";
-    input.simulate("change", { target: { value: expected, name: "first_name" } });
+    input.simulate("change", {
+      target: { value: expected, name: "first_name" },
+    });
     const actual = patientNewWrapper.state().newPatient.first_name;
     expect(actual).toEqual(expected);
   });

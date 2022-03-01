@@ -5,6 +5,7 @@ import PatientEdit from "./PatientEdit";
 import Modal from "./Modal";
 import { Button } from "reactstrap";
 import edit from "../../../assets/images/edit.svg";
+import { Redirect } from "react-router-dom";
 
 export default class PatientInfo extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ export default class PatientInfo extends Component {
         medications: null,
       },
       modalOpen: false,
+      submitted: false,
     };
   }
 
@@ -55,6 +57,15 @@ export default class PatientInfo extends Component {
     this.setState({ modalOpen: !this.state.modalOpen });
   };
 
+  handleDelete = () => {
+    if (
+      window.confirm("Are you sure you want to delete this patient?") === true
+    ) {
+      this.props.deletePatient(this.props.id);
+      this.setState({ submitted: true });
+    }
+  };
+
   render() {
     const {
       first_name,
@@ -70,11 +81,11 @@ export default class PatientInfo extends Component {
     } = this.state.patient;
 
     return (
-      <>
+      <section className="patient-info">
         <div>
-          <img src={image} alt={first_name} width="425px" />
+          <img src={image} alt={first_name} width="300px" />
           <h2>
-            {first_name} {middle_name} {last_name}
+            {first_name} {last_name}
             <input
               type="image"
               className="edit-button"
@@ -83,22 +94,6 @@ export default class PatientInfo extends Component {
               onClick={this.handleModalOpen}
             />
           </h2>
-
-          <div>
-            <Modal
-              isOpen={this.state.modalOpen}
-              toggle={this.handleModalOpen}
-              title="Edit Patient"
-            >
-              <PatientEdit
-                id={this.props.id}
-                updatePatient={this.props.updatePatient}
-                handleModalOpen={this.handleModalOpen}
-                fetchPatientById={this.fetchPatientById}
-              />
-            </Modal>
-          </div>
-
           <ul>
             <li>Preferred name: {preferred_name}</li>
             <li>DOB: {dob}</li>
@@ -107,26 +102,39 @@ export default class PatientInfo extends Component {
             <li>Pronoun: {pronoun}</li>
             <li>Need To Know: {need_to_know}</li>
           </ul>
-          <MedicationList
-            medications={medications}
-            modalOpen={this.state.modalOpen}
-            id={this.props.id}
-            fetchPatientById={this.fetchPatientById}
-          />
-        </div>
-        <Link to="/">
-          <Button color="primary">Back</Button>
-        </Link>
-        <Link to="/">
+          <Link to="/">
+            <Button color="primary">Back</Button>
+          </Link>
           <Button
             className="delete-button"
             color="danger"
-            onClick={() => this.props.deletePatient(this.props.id)}
+            onClick={this.handleDelete}
           >
             Delete Patient
           </Button>
-        </Link>
-      </>
+        </div>
+        <div>
+          <Modal
+            isOpen={this.state.modalOpen}
+            toggle={this.handleModalOpen}
+            title="Edit Patient"
+          >
+            <PatientEdit
+              id={this.props.id}
+              updatePatient={this.props.updatePatient}
+              handleModalOpen={this.handleModalOpen}
+              fetchPatientById={this.fetchPatientById}
+            />
+          </Modal>
+        </div>
+        <MedicationList
+          medications={medications}
+          modalOpen={this.state.modalOpen}
+          id={this.props.id}
+          fetchPatientById={this.fetchPatientById}
+        />
+        {this.state.submitted && <Redirect to={`/`} />}
+      </section>
     );
   }
 }
