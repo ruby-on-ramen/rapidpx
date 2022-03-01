@@ -4,6 +4,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
 }
 
 nav div {
@@ -13,6 +16,7 @@ nav div {
 .nav-link {
   text-decoration: none;
   color: black;
+  margin-right: 30px;
 }
 .nav-link:hover {
   color: rgb(8, 62, 154);
@@ -20,6 +24,7 @@ nav div {
 .logo {
   font-size: 2rem;
   font-weight: bold;
+  margin-left: 30px;
 }
 .logo > span {
   color: rgb(8, 62, 154);
@@ -29,11 +34,7 @@ nav div {
   justify-content: space-between;
   margin: 0;
   width: 100%;
-  length: 100%;
-  /* text-align: center; */
   background: #a4d0e0;
   flex-direction: row;
   justify-content: space-between;
-  /* color: white;
-  font-size: 30px; */
 }
