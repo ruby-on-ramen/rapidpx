@@ -6,14 +6,19 @@ import Modal from "./Modal";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("When Modal renders", () => {
-  it("has 1 buttons", () => {
-    const modaltWrapper = shallow(<Modal open={{}} />);
-    const button = modaltWrapper.find("button");
-    expect(button.length).toEqual(1);
+  it("has a modal component", () => {
+    const modalWrapper = shallow(<Modal open={{}} />);
+    const component = modalWrapper.find("Modal");
+    expect(component.length).toEqual(1);
   });
-  it("has 1 buttons text", () => {
-    const buttonWrapper = shallow(<Modal open={{}} />);
-    const button = buttonWrapper.find("button").text();
-    expect(button).toEqual("Close");
+  it("has a modal header component", () => {
+    const modalWrapper = shallow(<Modal open={{}} />);
+    const component = modalWrapper.find("ModalHeader");
+    expect(component.length).toEqual(1);
+  });
+  it("has a modal body component", () => {
+    const modalWrapper = shallow(<Modal open={{}} />);
+    const component = modalWrapper.find("ModalBody");
+    expect(component.length).toEqual(1);
   });
 });

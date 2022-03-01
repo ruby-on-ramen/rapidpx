@@ -11,9 +11,9 @@ describe("When Home renders", () => {
     const homeHeading = home.find("h1").text();
     expect(homeHeading).toEqual("Patients");
   });
-  it("I can see a h1 tag", () => {
-    const renderedHome = shallow(<Home />);
-    const renderedHomeRoute = renderedHome.find("a").text();
-    expect(renderedHomeRoute).toEqual("Add A Patient");
+  it("has 2 buttons", () => {
+    const homeWrapper = shallow(<Home />);
+    const homeForm = homeWrapper.find("Button");
+    expect(homeForm.length).toEqual(1);
   });
 });

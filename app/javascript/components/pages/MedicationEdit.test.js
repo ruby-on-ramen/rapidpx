@@ -23,7 +23,7 @@ describe("When MedicationEdit renders", () => {
   });
   it("has 2 buttons", () => {
     const MedicationEditWrapper = shallow(<MedicationEdit medication={{}} />);
-    const MedicationEditForm = MedicationEditWrapper.find("button");
+    const MedicationEditForm = MedicationEditWrapper.find("Button");
     expect(MedicationEditForm.length).toEqual(2);
   });
 });
