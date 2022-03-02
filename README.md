@@ -24,13 +24,6 @@ https://limitless-coast-85256.herokuapp.com/
 <img src="https://i.imgur.com/sCWYfJJ.png" height="300px;" alt="RapidPx Patient Show Page" />
 <img src="https://i.imgur.com/L2IydBu.png" height="300px;" alt="RapidPx Patient New Page" />
 <img src="https://i.imgur.com/6SdmqmU.png" height="300px;" alt="RapidPx Patient Index Page" />
-### Contributing
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-### License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ### Contact
 
