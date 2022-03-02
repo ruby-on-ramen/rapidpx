@@ -14,12 +14,13 @@
  *= require_self
  */
 
-@import "./App.css";
-@import "./About.css";
-@import "./Footer.css";
-@import "./Header.css";
-@import "./Modal.css";
-@import "./PatientInfo.css";
+@import "bootstrap";
+@import "./app.css";
+@import "./about.css";
+@import "./footer.css";
+@import "./header.css";
+@import "./modal.css";
+@import "./patientinfo.css";
 
 .edit-button {
   width: 2rem;

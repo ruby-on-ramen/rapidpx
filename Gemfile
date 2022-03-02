@@ -58,3 +58,5 @@ gem 'rspec-rails', '~> 5.1'
 gem 'simplecov', require: false, group: :test
 
 gem 'rubocop', require: false
+
+gem "bootstrap", "~> 5.1"
