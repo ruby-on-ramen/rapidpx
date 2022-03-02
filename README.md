@@ -16,12 +16,14 @@ With your support we can reduce the burden of our frontline heroes and bring ext
 
 ### Getting Started
 
-==INSERT HEROKU URL HERE==
+https://limitless-coast-85256.herokuapp.com/
 
 ### Usage
 
-==INSERT SCREEN SHOTS OF APP HERE==
-
+<img src="https://i.imgur.com/DZV4K6D.png" height="300px;" alt="RapidPx Patient Index Page" />
+<img src="https://i.imgur.com/sCWYfJJ.png" height="300px;" alt="RapidPx Patient Show Page" />
+<img src="https://i.imgur.com/L2IydBu.png" height="300px;" alt="RapidPx Patient New Page" />
+<img src="https://i.imgur.com/6SdmqmU.png" height="300px;" alt="RapidPx Patient Index Page" />
 ### Contributing
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -34,10 +36,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <table>
   <tr>
-    <td align="center"><a href="https://www.linkedin.com/in/christopher-hickey-6228b3a/" target="_blank"><img src="https://media-exp1.licdn.com/dms/image/C5603AQEy3yWNxXNghQ/profile-displayphoto-shrink_800_800/0/1549829313463?e=1650499200&v=beta&t=3EipenpypU2WIy3hU1oX1Wz532_HmsdGeexOlYU8pkI" width="100px;" alt="Chris Hickey" style="border: solid white 4px" /><br /><b><sub>Chris Hickey</sub></b></a><br /><sub>Project Manager</sub>
-    <td align="center"><a href="https://www.linkedin.com/in/samantha-perez-71b89922b/" target="_blank"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQF06aVwyXqnkQ/profile-displayphoto-shrink_800_800/0/1643310587630?e=1650499200&v=beta&t=dwf3-KIM4VrLUOXDY0mOYW9-mokl-inOaMxkXAJ5GxM" width="100px;" alt="Samantha Perez" style="border: solid white 4px"/><br /><b><sub>Samantha Perez</sub></b></a><br /><sub>Design Lead</sub>
-    <td align="center"><a href="https://www.linkedin.com/in/hannahsouder/" target="_blank"><img src="https://media-exp1.licdn.com/dms/image/C5603AQEEIVYCrLpobw/profile-displayphoto-shrink_800_800/0/1643316550652?e=1650499200&v=beta&t=zM1pRkqG63w9OEW70JBbjqxJfQzOv3zFuDrLhI6Gwbs" width="100px;" alt="Hannah Souder" style="border: solid white 4px"/><br /><b><sub>Hannah Souder</sub></b></a><br /><sub>Product Manager</sub>
-    <td align="center"><a href="https://www.linkedin.com/in/kirkkwang/" target="_blank"><img src="https://media-exp1.licdn.com/dms/image/C5603AQH_Z8-w7VGlHw/profile-displayphoto-shrink_400_400/0/1630872534943?e=1650499200&v=beta&t=CAY41VjgJHVlHM8s2Do9ohQUlkycEkUwRq4kso4_7hc" width="100px;" alt="Kirk Wang" style="border: solid white 4px"/><br /><b><sub>Kirk Wang</sub></b></a><br /><sub>Tech Lead</sub>
+    <td align="center"><a href="https://www.linkedin.com/in/christopher-hickey-6228b3a/" target="_blank"><img src="https://media-exp1.licdn.com/dms/image/C5603AQEy3yWNxXNghQ/profile-displayphoto-shrink_800_800/0/1549829313463?e=1650499200&v=beta&t=3EipenpypU2WIy3hU1oX1Wz532_HmsdGeexOlYU8pkI" width="100px;" alt="Chris Hickey" /><br /><b><sub>Chris Hickey</sub></b></a><br /><sub>Project Manager</sub>
+    <td align="center"><a href="https://www.linkedin.com/in/samantha-perez-71b89922b/" target="_blank"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQF06aVwyXqnkQ/profile-displayphoto-shrink_800_800/0/1643310587630?e=1650499200&v=beta&t=dwf3-KIM4VrLUOXDY0mOYW9-mokl-inOaMxkXAJ5GxM" width="100px;" alt="Samantha Perez" /><br /><b><sub>Samantha Perez</sub></b></a><br /><sub>Design Lead</sub>
+    <td align="center"><a href="https://www.linkedin.com/in/hannahsouder/" target="_blank"><img src="https://media-exp1.licdn.com/dms/image/C5603AQGMQVb1ddvO5A/profile-displayphoto-shrink_800_800/0/1646100572712?e=1651708800&v=beta&t=P_h3HrK42508LcTPg6nIdJoSf8hCTVPo3a4uI_EobLg" width="100px;" alt="Hannah Souder" /><br /><b><sub>Hannah Souder</sub></b></a><br /><sub>Product Manager</sub>
+    <td align="center"><a href="https://www.linkedin.com/in/kirkkwang/" target="_blank"><img src="https://media-exp1.licdn.com/dms/image/C5603AQH_Z8-w7VGlHw/profile-displayphoto-shrink_400_400/0/1630872534943?e=1650499200&v=beta&t=CAY41VjgJHVlHM8s2Do9ohQUlkycEkUwRq4kso4_7hc" width="100px;" alt="Kirk Wang" /><br /><b><sub>Kirk Wang</sub></b></a><br /><sub>Tech Lead</sub>
 </table>
 
 Ruby On Ramen Dev Team: rubyonramen@gmail.com

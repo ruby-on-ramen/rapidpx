@@ -22,6 +22,13 @@ export default class Header extends Component {
             <NavLink to="/about" className="nav-link">
               About Us
             </NavLink>
+            <a
+              href="https://github.com/ruby-on-ramen/rapidpx"
+              target="_blank"
+              className="nav-link"
+            >
+              GitHub
+            </a>
             <a href={sign_out_route} className="nav-link">
               Sign Out
             </a>
