@@ -8,11 +8,6 @@ export default class About extends Component {
           <h1>About Us</h1>
           <p>We are Ruby on Ramen</p>
           <img src={require("../../../assets/images/logo.svg")} width="300px" />
-
-          <p>
-            Resize the browser window to see that this page is responsive by the
-            way.
-          </p>
         </div>
 
         <div className="row">
@@ -108,7 +103,7 @@ export default class About extends Component {
                   href="https://www.linkedin.com/in/samantha-perez-71b89922b/"
                   target="_blank"
                 >
-                  LinkedIn
+                  LinkedIn  
                 </a>
               </div>
             </div>

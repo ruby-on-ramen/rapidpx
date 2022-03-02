@@ -19,7 +19,7 @@ export default class Home extends Component {
   render() {
     const { patientsArray } = this.props;
     return (
-      <div className="patient-index">
+      <div className="site-body">
         <div className="home-top">
           <h1>Patients</h1>
           <Button color="primary" onClick={this.handleModalOpen}>

@@ -5,6 +5,7 @@ import PatientEdit from "./PatientEdit";
 import Modal from "./Modal";
 import { Button } from "reactstrap";
 import edit from "../../../assets/images/edit.svg";
+import trash from "../../../assets/images/delete.svg";
 import { Redirect } from "react-router-dom";
 
 export default class PatientInfo extends Component {
@@ -59,7 +60,9 @@ export default class PatientInfo extends Component {
 
   handleDelete = () => {
     if (
-      window.confirm("Are you sure you want to delete this patient?") === true
+      window.confirm(
+        "Are you sure you want to delete this patient profile?"
+      ) === true
     ) {
       this.props.deletePatient(this.props.id);
       this.setState({ submitted: true });
@@ -81,8 +84,13 @@ export default class PatientInfo extends Component {
     } = this.state.patient;
 
     return (
-      <section className="patient-info">
+      <section className="patient-info site-body">
         <div>
+          <Link to="/">
+            <Button color="secondary">Back</Button>
+          </Link>
+          <br />
+          <br />
           <img
             src={image}
             alt={first_name}
@@ -90,7 +98,9 @@ export default class PatientInfo extends Component {
             className="patient-info-image"
           />
           <h2>
-            {first_name} {last_name}
+            <strong>
+              {first_name} {last_name}
+            </strong>
             <input
               type="image"
               className="edit-button"
@@ -98,25 +108,23 @@ export default class PatientInfo extends Component {
               alt="Edit Patient Info"
               onClick={this.handleModalOpen}
             />
+            <input
+              type="image"
+              className="edit-button"
+              src={trash}
+              alt="Delete Patient Info"
+              onClick={this.handleDelete}
+            />
           </h2>
           <ul>
-            <li>Preferred name: {preferred_name}</li>
+            {preferred_name && <li>Preferred name: {preferred_name}</li>}
+            {middle_name && <li>Middle name: {middle_name}</li>}
             <li>DOB: {dob}</li>
             <li>Age: {this.getAge(dob)}</li>
             <li>Gender: {gender}</li>
-            <li>Pronoun: {pronoun}</li>
-            <li>Need To Know: {need_to_know}</li>
+            {pronoun && <li>Pronoun: {pronoun}</li>}
+            {need_to_know && <li>Need To Know: {need_to_know}</li>}
           </ul>
-          <Link to="/">
-            <Button color="primary">Back</Button>
-          </Link>
-          <Button
-            className="delete-button"
-            color="danger"
-            onClick={this.handleDelete}
-          >
-            Delete Patient
-          </Button>
         </div>
         <div>
           <Modal

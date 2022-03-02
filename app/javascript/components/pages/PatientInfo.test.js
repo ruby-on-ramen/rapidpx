@@ -11,11 +11,6 @@ global.fetch = () =>
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("when PatientInfo renders", () => {
-  it("has a button to delete the patient info", () => {
-    const info = shallow(<PatientInfo id={1} />);
-    const infoButton = info.find('Button[children="Delete Patient"]');
-    expect(infoButton.length).toEqual(1);
-  });
   it("has a button to go back to all patients", () => {
     const info = shallow(<PatientInfo id={1} />);
     const infoButton = info.find('Button[children="Back"]');
