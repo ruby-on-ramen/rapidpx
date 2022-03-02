@@ -42,6 +42,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
     <td align="center"><a href="https://www.linkedin.com/in/kirkkwang/" target="_blank"><img src="https://media-exp1.licdn.com/dms/image/C5603AQH_Z8-w7VGlHw/profile-displayphoto-shrink_400_400/0/1630872534943?e=1650499200&v=beta&t=CAY41VjgJHVlHM8s2Do9ohQUlkycEkUwRq4kso4_7hc" width="100px;" alt="Kirk Wang" /><br /><b><sub>Kirk Wang</sub></b></a><br /><sub>Tech Lead</sub>
 </table>
 
+<img src="./app/assets/images/logo.svg" alt="Ruby On Ramen Logo" width="100px">
+
 Ruby On Ramen Dev Team: rubyonramen@gmail.com
 
 Project Link: https://github.com/ruby-on-ramen/rapidpx
