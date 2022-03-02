@@ -1,4 +1,10 @@
 .patient-info {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 60px;
+}
+
+.patient-info-image {
+  box-shadow: rgba(17, 17, 26, 0.8) 0px 0px 16px;
+  margin-bottom: 12px;
 }

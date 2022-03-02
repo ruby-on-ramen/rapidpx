@@ -19,8 +19,13 @@ export default class Home extends Component {
   render() {
     const { patientsArray } = this.props;
     return (
-      <div>
-        <h1>Patients</h1>
+      <div className="patient-index">
+        <div className="home-top">
+          <h1>Patients</h1>
+          <Button color="primary" onClick={this.handleModalOpen}>
+            Add New Patient
+          </Button>
+        </div>
         <div className="flex">
           {patientsArray &&
             patientsArray.map((patient, idx) => {
@@ -43,9 +48,6 @@ export default class Home extends Component {
             })}
         </div>
         <br />
-        <Button color="primary" onClick={this.handleModalOpen}>
-          Add New Patient
-        </Button>
         <Modal
           isOpen={this.state.modalOpen}
           toggle={this.handleModalOpen}

@@ -16,8 +16,9 @@ nav div {
 
 .nav-link {
   text-decoration: none;
-  color: black;
+  color: #000000;
   margin-right: 30px;
+  margin-top: 6px;
 }
 .nav-link:hover {
   color: rgb(8, 62, 154);
@@ -28,14 +29,14 @@ nav div {
   margin-left: 30px;
 }
 .logo > span {
-  color: rgb(8, 62, 154);
+  color: #083e9a;
 }
 .header-background {
   display: flex;
   justify-content: space-between;
   margin: 0;
   width: 100%;
-  background-color: rgba(164, 208, 224, 0.5);
+  background-color: #a4d0e080;
   flex-direction: row;
   justify-content: space-between;
 }

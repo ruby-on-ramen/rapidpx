@@ -5,15 +5,16 @@ export default class About extends Component {
     return (
       <>
         <div className="about-section">
-          <h1>About Us Page</h1>
-          <p>Some text about who we are and what we do.</p>
+          <h1>About Us</h1>
+          <p>We are Ruby on Ramen</p>
+          <img src={require("../../../assets/images/logo.svg")} width="300px" />
+
           <p>
             Resize the browser window to see that this page is responsive by the
             way.
           </p>
         </div>
 
-        <h2 style={{ textAlign: "center" }}>Meet Ruby On Ramen</h2>
         <div className="row">
           <div className="column">
             <div className="card">
@@ -91,13 +92,24 @@ export default class About extends Component {
           <div className="column">
             <div className="card">
               <div className="container">
+                <img
+                  src={require("../../../assets/images/samantha_ramen.png")}
+                  width="300px"
+                />
                 <h2>Samantha Perez</h2>
                 <p className="title">Design Lead</p>
-                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                <p>email4@example.com</p>
                 <p>
-                  <button className="button-style">Contact</button>
+                  Hello World! I am a full stack developer, I am passionate on
+                  creating and helping others facilitate their lives. I enjoy
+                  team collaboration, open minded and eager to learn and grow
+                  through new opportunities.
                 </p>
+                <a
+                  href="https://www.linkedin.com/in/samantha-perez-71b89922b/"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
               </div>
             </div>
           </div>

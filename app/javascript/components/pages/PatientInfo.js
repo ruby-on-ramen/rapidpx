@@ -83,7 +83,12 @@ export default class PatientInfo extends Component {
     return (
       <section className="patient-info">
         <div>
-          <img src={image} alt={first_name} width="300px" />
+          <img
+            src={image}
+            alt={first_name}
+            width="300px"
+            className="patient-info-image"
+          />
           <h2>
             {first_name} {last_name}
             <input
