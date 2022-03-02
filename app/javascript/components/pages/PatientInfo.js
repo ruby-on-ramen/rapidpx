@@ -111,6 +111,7 @@ export default class PatientInfo extends Component {
             <input
               type="image"
               className="edit-button"
+              id="delete-btn"
               src={trash}
               alt="Delete Patient Info"
               onClick={this.handleDelete}

@@ -9,7 +9,6 @@ describe("When Footer renders", () => {
   it("displays about us link", () => {
     const footer = shallow(<Footer />);
     const navigation = footer.find("footer");
-    console.log(navigation.debug());
     expect(navigation.length).toEqual(1);
   });
 });

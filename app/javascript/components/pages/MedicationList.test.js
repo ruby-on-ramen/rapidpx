@@ -5,6 +5,8 @@ import MedicationList from "./MedicationList";
 
 Enzyme.configure({ adapter: new Adapter() });
 
+window.fetch = jest.fn();
+
 const mockMedication = {
   medication_name: "foobar",
   dose: "twice",
@@ -71,5 +73,42 @@ describe("When MedicationList renders", () => {
     const input = medicationListWrapper.find("input");
     input.at(0).simulate("click");
     expect(medicationListWrapper.state().isEditOpen).toEqual(true);
+  });
+  it("Creates a medication", async () => {
+    window.fetch.mockImplementationOnce(() => Promise.resolve({ status: 200 }));
+    const mockFnFetchPatientById = jest.fn();
+    const medicationListWrapper = shallow(
+      <MedicationList
+        fetchPatientById={mockFnFetchPatientById}
+        medication={[]}
+      />
+    );
+    await medicationListWrapper.instance().createMedication();
+    expect(mockFnFetchPatientById.mock.calls.length).toEqual(1);
+  });
+  it("Updates a medication", async () => {
+    window.fetch.mockImplementationOnce(() => Promise.resolve({ status: 200 }));
+    const mockFnFetchPatientById = jest.fn();
+    const medicationListWrapper = shallow(
+      <MedicationList
+        fetchPatientById={mockFnFetchPatientById}
+        medication={[]}
+      />
+    );
+    await medicationListWrapper.instance().updateMedication();
+    expect(mockFnFetchPatientById.mock.calls.length).toEqual(1);
+  });
+  it("Deletes a medication", async () => {
+    window.confirm = () => true;
+    window.fetch.mockImplementationOnce(() => Promise.resolve({ status: 200 }));
+    const mockFnFetchPatientById = jest.fn();
+    const medicationListWrapper = shallow(
+      <MedicationList
+        fetchPatientById={mockFnFetchPatientById}
+        medication={[]}
+      />
+    );
+    await medicationListWrapper.instance().deleteMedication();
+    expect(mockFnFetchPatientById.mock.calls.length).toEqual(1);
   });
 });
