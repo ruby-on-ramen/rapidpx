@@ -3,6 +3,8 @@ import Enzyme, { shallow, render } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import PatientInfo from "./PatientInfo";
 
+window.confirm = jest.fn().mockImplementation(() => true);
+
 const mockPatient = { first_name: "Stefani", last_name: "F" };
 
 global.fetch = () =>
@@ -11,11 +13,6 @@ global.fetch = () =>
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("when PatientInfo renders", () => {
-  it("has a button to delete the patient info", () => {
-    const info = shallow(<PatientInfo id={1} />);
-    const infoButton = info.find('Button[children="Delete Patient"]');
-    expect(infoButton.length).toEqual(1);
-  });
   it("has a button to go back to all patients", () => {
     const info = shallow(<PatientInfo id={1} />);
     const infoButton = info.find('Button[children="Back"]');
@@ -33,12 +30,12 @@ describe("when PatientInfo renders", () => {
     info.instance().handleModalOpen();
     expect(info.state().modalOpen).toEqual(false);
   });
-  it("Test click event", () => {
+  it("Test click event", async () => {
     const mockCallBack = jest.fn();
     const patientInfoWrapper = shallow(
       <PatientInfo deletePatient={mockCallBack} />
     );
-    const button = patientInfoWrapper.find('Button[children="Delete Patient"]');
+    const button = patientInfoWrapper.find("#delete-btn");
     button.simulate("click");
     expect(mockCallBack.mock.calls.length).toEqual(1);
   });

@@ -9,6 +9,6 @@ describe("When About renders", () => {
   it("displays a header", () => {
     const about = shallow(<About />);
     const aboutHeading = about.find("h1").text();
-    expect(aboutHeading).toEqual("About Us Page");
+    expect(aboutHeading).toEqual("About Us");
   });
 });

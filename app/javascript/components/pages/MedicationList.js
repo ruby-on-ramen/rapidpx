@@ -95,17 +95,16 @@ export default class MedicationList extends Component {
   render() {
     return (
       <div>
-        <h3>Medications</h3>
         <Button color="primary" onClick={this.handleAddOpen}>
           Add Medication
         </Button>
         <br />
         <br />
-        <br />
+        <h3>Medications</h3>
         {this.props.medications &&
           this.props.medications.map((medication, idx) => {
             return (
-              <div key={idx} id={`med-div-${idx}`}>
+              <div className="medication-list" key={idx} id={`med-div-${idx}`}>
                 <a
                   href={`https://pubchem.ncbi.nlm.nih.gov/compound/${medication.medication_name}`}
                   target="_blank"
